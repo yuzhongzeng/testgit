@@ -1,0 +1,586 @@
+body, button, input, select, textarea {
+  font-family: 'Microsoft YaHei', arial, SimSun, sans-serif, tahoma;
+}
+
+body {
+  min-height: 100%;
+  font-size: 14px;
+  color: #666;
+  padding-top: px2rem(69px);
+}
+
+input, select, textarea {
+  font-size: 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+textarea, input, button, a {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, cite, code, dfn, em, i, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+a {
+  text-decoration: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #b0adc2;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #b0adc2;
+}
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #b0adc2;
+}
+
+input:-ms-input-placeholder {
+  color: #b0adc2;
+}
+
+html {
+  font-size: 100px;
+}
+
+@media (max-width: 1912px) {
+  html {
+    font-size: 99.5833px;
+  }
+}
+@media (max-width: 1910px) {
+  html {
+    font-size: 99.1146px;
+  }
+}
+@media (max-width: 1885px) {
+  html {
+    font-size: 97.6042px;
+  }
+}
+@media (max-width: 1855px) {
+  html {
+    font-size: 96.3542px;
+  }
+}
+@media (max-width: 1680px) {
+  html {
+    font-size: 87.5px;
+  }
+}
+@media (max-width: 1540px) {
+  html {
+    font-size: 79.5833px;
+  }
+}
+@media (max-width: 1482px) {
+  html {
+    font-size: 77.0833px;
+  }
+}
+@media (max-width: 1475px) {
+  html {
+    font-size: 76.6667px;
+  }
+}
+@media (max-width: 1444px) {
+  html {
+    font-size: 75px;
+  }
+}
+@media (max-width: 1435px) {
+  html {
+    font-size: 74.5833px;
+  }
+}
+@media (max-width: 1375px) {
+  html {
+    font-size: 71.1458px;
+  }
+}
+@media (max-width: 1366px) {
+  html {
+    font-size: 70.7292px;
+  }
+}
+@media (max-width: 1280px) {
+  html {
+    font-size: 66.6667px;
+  }
+}
+@media (max-width: 1272px) {
+  html {
+    font-size: 66.25px;
+  }
+}
+@media (max-width: 1024px) {
+  html {
+    font-size: 53.3333px;
+  }
+}
+@media (max-width: 1016px) {
+  html {
+    font-size: 52.9167px;
+  }
+}
+@media (max-width: 770px) {
+  html {
+    font-size: 85.3333px;
+  }
+
+  body {
+    padding-top: 50px;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 66.6667px;
+  }
+}
+@media (max-width: 485px) {
+  html {
+    font-size: 64px;
+  }
+}
+@media (max-width: 455px) {
+  html {
+    font-size: 60px;
+  }
+}
+@media (max-width: 425px) {
+  html {
+    font-size: 56.6667px;
+  }
+}
+@media (max-width: 414px) {
+  html {
+    font-size: 55.2px;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 53.3333px;
+  }
+}
+@media (max-width: 380px) {
+  html {
+    font-size: 50.6667px;
+  }
+}
+@media (max-width: 375px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media (max-width: 360px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media (max-width: 340px) {
+  html {
+    font-size: 45.3333px;
+  }
+}
+@media (max-width: 320px) {
+  html {
+    font-size: 42.6667px;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  height: 100%;
+  background: #E4EBF0;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 1920px;
+  margin: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track-piece {
+  background-color: #77828f;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #0E1523;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.none {
+  display: none;
+}
+
+.sec-contain {
+  width: 76%;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.koStyle div, .koStyle a, .koStyle p, .koStyle span {
+  word-break: keep-all !important;
+}
+
+@media (max-width: 960px) {
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+}
+@font-face {
+  font-family: "gotham-book";
+  src: url("../fonts/gotham/GOTHAM-BOOK.OTF"), url("../fonts/gotham/GOTHAM-BOOK.OTF"), url("../fonts/gotham/GOTHAM-BOOK.OTF");
+}
+@font-face {
+  font-family: "gotham-medium";
+  src: url("../fonts/gotham/GOTHAM-MEDIUM.OTF"), url("../fonts/gotham/GOTHAM-MEDIUM.OTF"), url("../fonts/gotham/GOTHAM-MEDIUM.OTF");
+}
+@font-face {
+  font-family: "gotham-light";
+  src: url("../fonts/gotham/GOTHAM-LIGHT.OTF"), url("../fonts/gotham/GOTHAM-LIGHT.OTF"), url("../fonts/gotham/GOTHAM-LIGHT.OTF");
+}
+@font-face {
+  font-family: "gotham-thin";
+  src: url("../fonts/gotham/GOTHAM-THIN.OTF"), url("../fonts/gotham/GOTHAM-THIN.OTF"), url("../fonts/gotham/GOTHAM-THIN.OTF");
+}
+@font-face {
+  font-family: "gotham-bold";
+  src: url("../fonts/gotham/GOTHAM-BOLD.OTF"), url("../fonts/gotham/GOTHAM-BOLD.OTF"), url("../fonts/gotham/GOTHAM-BOLD.OTF");
+}
+@font-face {
+  font-family: "gotham-blackitalic";
+  src: url("../fonts/gotham/GOTHAMNARROW-BLACKITALIC.OTF"), url("../fonts/gotham/GOTHAMNARROW-BLACKITALIC.OTF"), url("../fonts/gotham/GOTHAMNARROW-BLACKITALIC.OTF");
+}
+@font-face {
+  font-family: "ko-bold";
+  src: url("../fonts/ko/NanumBarunGothicBold.ttf"), url("../fonts/ko/NanumBarunGothicBold.ttf"), url("../fonts/ko/NanumBarunGothicBold.ttf");
+}
+@font-face {
+  font-family: "ko-regular";
+  src: url("../fonts/ko/NanumBarunGothic-YetHangul.ttf"), url("../fonts/ko/NanumBarunGothic-YetHangul.ttf"), url("../fonts/ko/NanumBarunGothic-YetHangul.ttf");
+}
+@font-face {
+  font-family: "ko-light";
+  src: url("../fonts/ko/NanumBarunGothicLight.woff.ttf"), url("../fonts/ko/NanumBarunGothicLight.woff.ttf"), url("../fonts/ko/NanumBarunGothicLight.woff.ttf");
+}
+@font-face {
+  font-family: "pf-regular";
+  src: url("../fonts/pf/PingFangSCRegular.ttf"), url("../fonts/pf/PingFangSCRegular.ttf"), url("../fonts/pf/PingFangSCRegular.ttf");
+}
+@font-face {
+  font-family: "pf-medium";
+  src: url("../fonts/pf/PingFangMedium.ttf"), url("../fonts/pf/PingFangMedium.ttf"), url("../fonts/pf/PingFangMedium.ttf");
+}
+.gotham-bold {
+  font-family: "gotham-bold" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gotham-book {
+  font-family: "gotham-book" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gotham-medium {
+  font-family: "gotham-medium" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gotham-light {
+  font-family: "gotham-light" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gotham-thin {
+  font-family: "gotham-thin" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.koStyle .gotham-book {
+  font-family: "ko-regular" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.koStyle .gotham-bold, .koStyle .gotham-medium {
+  font-family: "ko-bold" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.koStyle .gotham-light, .koStyle .gotham-thin {
+  font-family: "ko-light" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zhStyle .gotham-book {
+  font-family: "pf-regular" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.zhStyle .gotham-bold, .zhStyle .gotham-medium {
+  font-family: "pf-medium" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.zhStyle .gotham-light, .zhStyle .gotham-thin {
+  font-family: "pf-light" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 1440px) {
+  .sec-contain {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+body {
+  background: #f7faff;
+}
+
+.hpydownload-wapper {
+  min-height: 100%;
+  background: url("../images/hpydownload/bg.png") center no-repeat;
+  background-size: cover;
+}
+.hpydownload-wapper .container {
+  width: 90%;
+  max-width: 12rem;
+  margin: 0 auto;
+}
+.hpydownload-wapper .header {
+  height: 1.05rem;
+  background: #f7faff;
+  border: 1px #efefef solid;
+}
+.hpydownload-wapper .header img {
+  max-width: 6rem;
+  max-height: 0.7rem;
+  margin-top: 0.17rem;
+  display: block;
+}
+.hpydownload-wapper .download-con {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.hpydownload-wapper .download-con .download-btn {
+  width: 2.6rem;
+  height: 0.42rem;
+  display: block;
+  background-color: #1a72fe;
+  border-radius: 0.19rem;
+  font-size: 0.14rem;
+  line-height: 0.42rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+}
+.hpydownload-wapper .download-left {
+  width: 3.63rem;
+  height: 6.42rem;
+  background-color: #f7faff;
+  padding: 0.15rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0.05rem 0.08rem 0.09rem 0.06rem rgba(231, 235, 242, 0.5);
+}
+.hpydownload-wapper .download-left img {
+  text-align: center;
+  max-width: 1.87rem;
+}
+.hpydownload-wapper .download-left .summary {
+  font-size: 0.14rem;
+  line-height: 0.26rem;
+  color: #455066;
+  margin: 0.47rem 0.1rem 0.58rem 0;
+}
+.hpydownload-wapper .code-container {
+  flex: 1;
+  margin-left: 0.5rem;
+  display: flex;
+}
+.hpydownload-wapper .download-code {
+  margin-top: 1.2rem;
+  margin-left: 0.8rem;
+}
+.hpydownload-wapper .download-code .img-contain {
+  width: 2.15rem;
+  height: 2.15rem;
+  background-color: #dae6f9;
+  border-radius: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+}
+.hpydownload-wapper .download-code .img-content {
+  width: 1.68rem;
+  height: 1.68rem;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 0.04rem;
+}
+.hpydownload-wapper .download-code .img-content img {
+  width: 1.61rem;
+  height: 1.61rem;
+}
+.hpydownload-wapper .download-code .download-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b4ccfe;
+}
+.hpydownload-wapper .download-code .download-btn img {
+  margin-right: 0.16rem;
+}
+
+@media screen and (max-width: 960px) {
+  .hpydownload-wapper .header {
+    height: auto;
+  }
+  .hpydownload-wapper .header img {
+    max-width: 80%;
+    max-height: 70px;
+    margin: 17px 0;
+    display: block;
+  }
+  .hpydownload-wapper .code-container {
+    margin-left: 0;
+    justify-content: center;
+  }
+  .hpydownload-wapper .download-con {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px 0;
+  }
+  .hpydownload-wapper .download-code {
+    margin-top: 60px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .hpydownload-wapper .code-container {
+    flex-wrap: wrap;
+  }
+  .hpydownload-wapper .download-code {
+    margin-left: 0;
+  }
+}
+
+/*# sourceMappingURL=hpydownIndex.css.map */

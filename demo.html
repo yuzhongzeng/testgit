@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .header {
+      margin: 0 auto;
+      max-width: 1200px;
+      height: 50px;
+      background-color: #ccc;
+      padding: 0 10px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 50px;
+      height: 20px;
+      background-color: #333;
+    }
+
+    .nav {
+      flex: 1;
+      height: 20px;
+      background-color: aliceblue;
+    }
+
+    .nav-list {
+      max-width: 800px;
+    }
+
+    .nav-list ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-list ul li {
+      float: left;
+      width: 100px;
+      height: 20px;
+      background-color: red;
+    }
+
+    .right {
+      /* width: 150px; */
+      height: 20px;
+      background-color: #333;
+      color: #fff;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .language-side {
+      display: block;
+      margin-right: 14px;
+      height: 20px;
+      line-height: 20px;
+      display: inline-block;
+      /* vertical-align: top; */
+      cursor: pointer;
+      position: relative;
+      padding-right: 14px;
+      /* display: flex; */
+      background-color: blueviolet;
+    }
+
+    .download-btn {
+      display: block;
+      margin-left: 20px;
+      /* margin-left:10%; */
+      /* width: 50px; */
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      flex-wrap: nowrap;
+      background-color: coral;
+    }
+
+    .demo {
+      width: 1000px;
+      height: 1000px;
+    }
+
+    .box {
+      margin-left: 10%;
+      height: 40px;
+      width: 40px;
+      background-color: darkcyan;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="logo"></div>
+    <div class="nav">
+      <div class="nav-list">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <!-- 右侧内容右侧内容右侧内容右侧内容 -->
+      <div class="language-side">语言</div>
+      <div class="download-btn">下载</div>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="box"></div>
+  </div>
+
+
+  <script>
+//     var entries = [1, [2, 5], [6, 7, [8, 10]], 9];
+//     var flat_entries = [].concat(...entries);
+//     console.log( flat_entries );
+// // [1, 2, 5, 6, 7, 9]
+console.log(navigator);
+  </script>
+</body>
+
+</html>

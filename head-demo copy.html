@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common.css?v=0.1">
+  <link rel="stylesheet" href="./fonts/iconfont/iconfont.css">
+  <!-- <script src="./static/fonts/iconfont/iconfont.js"></script> -->
+  <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+
+    ; (function (doc, win) {
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+
+      function calc() {
+        var dEl = document.documentElement,
+          clientWidth = dEl.clientWidth;
+        var maxWidth = 640, minWidth = 320;
+
+        if (clientWidth > maxWidth) {
+          clientWidth = maxWidth
+        } else if (clientWidth < minWidth) {
+          clientWidth = minWidth
+        }
+        // if(clientWidth>=640){
+        // 	clientWidth = 640;
+        // }
+
+        dEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+      }
+      function calc1920() {
+        var dEl = document.documentElement,
+          clientWidth = dEl.clientWidth;
+        var maxWidth = 1920, minWidth = 1024;
+
+        if (clientWidth > maxWidth) {
+          clientWidth = maxWidth
+        } else if (clientWidth < minWidth) {
+          clientWidth = minWidth
+        }
+        dEl.style.fontSize = 100 * (clientWidth / 1920) + 'px'
+      }
+      var dEl = document.documentElement,
+        clientWidth = dEl.clientWidth
+      if (clientWidth <= 960) {
+        win.addEventListener(resizeEvt, calc);
+        doc.addEventListener('DOMContentLoaded', calc);
+      } else {
+        win.addEventListener(resizeEvt, calc1920);
+        doc.addEventListener('DOMContentLoaded', calc1920);
+      }
+    })(document, window)
+      ;
+
+  </script>
+</head>
+
+<body>
+
+
+  <header class="header site-header border-bottom logo--left" role="banner">
+    <div class="header-top sec-contain clearfix">
+      <div class="top_logo fl">
+        <a href="/?lang=en">
+          <img src="https://www.hyperpay.tech/static/dist/images/common/logo.svg" alt="" class="logo_img">
+        </a>
+      </div>
+      <div class="top_nav fl clearfix">
+        <nav class="nav">
+          <ul class="clearfix gotham-medium">
+            <li class=""><a href="/wallet?lang=en">Wallets</a></li>
+            <li class=""><a href="/trading?lang=en">Trading</a></li>
+            <li class=""><a href="/pos?lang=en">Staking</a></li>
+            <li class=""><a href="/wealth?lang=en">Investment</a></li>
+            <li class=""><a href="/loan?lang=en">BitLoan</a></li>
+            <li class=""><a href="/cloud?lang=en">Cloud Mining</a></li>
+            <li class=""><a href="/latest_news?lang=en">News</a></li>
+            <li class=""><a href="/support?lang=en">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="top_right fr">
+        <span class="language-side gotham-medium">
+          <i class="iconfont iconlanguage-icon"></i>
+          En
+          <div class="lan-content">
+            <a href="?lang=zh-cn">中文</a> <a href="?lang=korea">한국어</a> </div>
+        </span>
+
+        <a href="/download?lang=en" class="download-btn ">
+          <span><img src="https://www.hyperpay.tech/static/dist/images/common/download-icon.svg">DownloadApp</span>
+        </a>
+      </div>
+      <span class="mobile-nav-btn"><i></i></span>
+    </div>
+  </header>
+  <!-- 移动端nav -->
+  <div class="mobile-nav-container">
+    <div class="mobile-nav">
+      <div class="flex-box1">
+        <ul>
+          <li>
+            <a href="./exchange_闪电兑换.html">Exchange</a>
+          </li>
+          <li>
+            <a href="./p2p_借贷.html">Peer-to-peer Loan</a>
+          </li>
+          <li>
+            <a href="./pos_币种.html">Staking</a>
+          </li>
+          <li>
+            <a href="./wealth_理财介绍.html">Wealth</a>
+          </li>
+          <li>
+            <a href="./news_新闻.html">News</a>
+          </li>
+          <li>
+            <a href="./guide_新手指南.html">User Guide</a>
+          </li>
+          <li>
+            <a href="support_帮助中心.html">24/7 Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="icon-wrap fl">
+        <a href="javascript:void(0)">
+          <span class="down-btn">Download App</span></a>
+        <!--<span class="terminal"><i class="iconfont icondownload-apple-logo-inbtl"></i></span>-->
+        <!--<span class="terminal"><i class="iconfont icondownload-google-logo-inbtl"></i></span>-->
+        <!--<span class="terminal"><i class="iconfont iconAndroid"></i></span>-->
+      </div>
+
+      <div class="flex-box2">
+        <div class="lang-wrap">
+          <a href="javascript:;" class="lang-btn active">English</a>
+          <em>|</em>
+          <a href="javascript:;" class="lang-btn">中文</a>
+          <em>|</em>
+          <a href="javascript:;" class="lang-btn ">한국어</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    // 小屏导航
+    $(document).on("click", ".mobile-nav-btn", function () {
+      $(".mobile-nav-container").toggleClass("active");
+      $(".mobile-nav-btn").toggleClass("active");
+    });
+  </script>
+
+  <style>
+    .header {
+      position: relative;
+      z-index: 101;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ddd;
+      color: #bec3c8;
+      padding: 0.1rem 0;
+
+      width: 100%;
+      position: fixed;
+      height: 0.69rem;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+    }
+
+    .header .header-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .top_logo {
+      text-align: right;
+    }
+
+    .header .top_logo .logo_img {
+      height: 0.4rem;
+      margin: 0 3.5% 0 0;
+    }
+
+    .header .top_nav {
+      flex: 1;
+      display: block;
+    }
+
+    .header .top_nav nav {
+      max-width: 1000px;
+    }
+
+    .header .top_nav nav ul {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.4rem;
+    }
+
+    .header .top_nav li {
+      font-size: 15px;
+      height: 0.51rem;
+      line-height: 0.51rem;
+    }
+
+    .header .top_nav li a {
+      color: #77828f;
+    }
+
+    .header .top_nav li:hover,
+    .header .top_nav li.active {
+      color: #0e1523;
+    }
+
+    .header .top_nav li:hover a,
+    .header .top_nav li.active a {
+      color: #0e1523;
+    }
+
+    .header .top_right {
+      /* width: 24.7%; */
+      flex-shrink: 0;
+      font-size: 0.15rem;
+      height: 0.51rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .header .top_right i {
+      font-size: 0.1rem;
+      margin-left: 0.03rem;
+    }
+
+    .header .top_right .language-side {
+      margin-right: 8%;
+      height: 0.51rem;
+      line-height: 0.51rem;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      padding-right: 14px;
+      display: flex;
+      color: #77828F;
+    }
+
+    .header .top_right .language-side i {
+      font-size: 0.2rem;
+      margin-left: 0;
+      margin-right: 0.08rem;
+    }
+
+    .header .top_right .language-side:after {
+      position: absolute;
+      border-bottom: 4px transparent dashed;
+      border-left: 4px transparent dashed;
+      border-right: 4px transparent dashed;
+      border-top: 4px #0e1523 solid;
+      top: 52%;
+      transform: translate(0, -50%);
+      right: 0;
+      display: block;
+      content: "";
+    }
+
+    .header .top_right .language-side:hover .lan-content,
+    .header .top_right .language-side.active .lan-content {
+      opacity: 1;
+    }
+
+    .header .top_right .lan-content {
+      opacity: 0;
+      position: absolute;
+      right: -0.2rem;
+      top: 0.48rem;
+      z-index: 99;
+      width: 0.8rem;
+      border-radius: 0.05rem;
+      background-color: #fff;
+      box-shadow: 0px 0.07rem 0.2rem 0px rgba(0, 0, 0, 0.17);
+      overflow: hidden;
+      transition: all .33s ease 0s;
+    }
+
+    .header .top_right .lan-content a {
+      display: block;
+      width: 100%;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      font-size: 0.15rem;
+      text-align: center;
+      color: #0E1523;
+      font-weight: 400;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+    }
+
+    .header .top_right .lan-content a:hover,
+    .header .top_right .lan-content a.active {
+      color: #1A72FE;
+    }
+
+    .header .top_right .download-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header .top_right .download-btn span {
+      /* width: 1.77rem; */
+      /* max-width: 180px; */
+      padding: 0 0.15rem;
+      height: 0.45rem;
+      max-height: 0.51rem;
+      background: #1A72FE;
+      border-radius: 0.23rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: #fff;
+      font-family: "gotham-medium";
+    }
+
+    .header .top_right .download-btn span:hover {
+      background: #0054D9 !important;
+    }
+
+    .header .top_right .download-btn img {
+      width: 0.18rem;
+      margin-right: 0.11rem;
+    }
+
+    .header .top_right .terminal {
+      display: inline-block;
+      width: 0.51rem;
+      height: 0.51rem;
+      border-radius: 0.08rem;
+      margin-right: 1.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header .top_right .terminal .iconfont {
+      font-size: 0.3rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .header .top_right .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .header .top_right .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .header .top_right .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+    }
+
+    /* 移动端 */
+    .mobile-nav-btn {
+      position: absolute;
+      top: 50%;
+      right: 0.55rem;
+      transform: translate(0, -50%);
+      display: none;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mobile-nav-btn.active::before {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .mobile-nav-btn.active i {
+      opacity: 0;
+      transition: all .2s ease;
+    }
+
+    .mobile-nav-btn.active::after {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mobile-nav-btn::before,
+    .mobile-nav-btn::after,
+    .mobile-nav-btn i {
+      position: absolute;
+      display: inline-block;
+      width: 50%;
+      left: 50%;
+      height: 2px;
+      border-radius: 0.1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: .3s ease-in-out;
+    }
+
+    .mobile-nav-btn::before {
+      content: '';
+      top: 34%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn::after {
+      content: '';
+      top: 67%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn i {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      transition: all .3s linear;
+    }
+
+    /* 内容 */
+    .mobile-nav-container {
+      position: fixed;
+      left: 0;
+      /* top: 50px; */
+      top: 0.69rem;
+      width: 100%;
+      height: 0;
+      color: #77828F;
+      background-color: #fff;
+      z-index: 100;
+      overflow: hidden;
+      transition: all .6s ease-in-out;
+    }
+
+    .mobile-nav-container a {
+      color: #77828F;
+    }
+
+    .mobile-nav-container.active {
+      height: 100%;
+    }
+
+    .mobile-nav-container .logo-wrap {
+      position: relative;
+      height: 0.5rem;
+      display: flex;
+      align-items: center;
+      display: none;
+    }
+
+    .mobile-nav-container .mobile-nav {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      padding: 1.33rem 0 1rem;
+    }
+
+    .mobile-nav-container li {
+      text-align: center;
+      font-size: 0.32rem;
+      margin-bottom: 0.5rem;
+      font-family: "gotham-medium";
+      cursor: pointer;
+    }
+
+    .mobile-nav-container li.active {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container li.active a {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .lang-wrap {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mobile-nav-container .lang-btn {
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.32rem;
+      padding: 0 0.4rem;
+      font-family: "gotham-medium";
+      color: #77828F;
+    }
+
+    .mobile-nav-container .lang-btn.active,
+    .mobile-nav-container .lang-btn:hover {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .logo img {
+      width: 1.79rem;
+    }
+
+    .mobile-nav-container .logo a {
+      display: block;
+    }
+
+    .mobile-nav-container .menu-btn {
+      position: absolute;
+      right: 0.1rem;
+      top: 50%;
+      color: #fff;
+      -webkit-transform: translate(0px, -50%);
+      -moz-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%);
+    }
+
+    .mobile-nav-container .menu-btn .iconfont {
+      font-size: 0.3rem;
+    }
+
+    .mobile-nav-container .mobile-nav-btn {
+      background: none;
+    }
+
+    .mobile-nav-container .icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .mobile-nav-container .icon-wrap span {
+      float: left;
+      margin-right: 0.6rem;
+    }
+
+    .mobile-nav-container .icon-wrap .down-btn {
+      width: 3.56rem;
+      height: 0.98rem;
+      line-height: 0.98rem;
+      background: #1a71fd;
+      opacity: 1;
+      border-radius: 1.6rem;
+      font-size: 0.28rem;
+      color: #fff;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 0.08rem;
+      margin-right: 4.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal .iconfont {
+      font-size: 0.5rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+      margin-right: 0;
+    }
+
+    @media screen and (max-width:970px) {
+
+      .header .top_nav,
+      .header .top_right {
+        display: none;
+      }
+
+      .mobile-nav-btn {
+        display: inline-block;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .header .top_nav li {
+        font-size: 13px;
+      }
+    }
+  </style>
+
+
+  <!-- <div class="bodyer">
+    <div class="page-width">
+      <div class="page-content"> -->
+  <!-- <div class="section-wrap gotham-light">
+          <div class="section-title">Features</div>
+          <ul class="feature-wrap">
+            <li class="setion-block">
+              <div class="setion-head">
+                <div class="setion-head-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><path fill="#1D2028" d="M22.115 3.923l-9-3.75a2.25 2.25 0 0 0-1.73 0l-9 3.75A2.25 2.25 0 0 0 1 6c0 9.304 5.367 15.737 10.385 17.827a2.25 2.25 0 0 0 1.73 0C17.128 22.155 23.5 16.373 23.5 6a2.25 2.25 0 0 0-1.385-2.077zm-9.577 18.52a.78.78 0 0 1-.577 0C7.375 20.624 2.5 14.25 2.5 6c0-.304.181-.575.462-.692l9-3.75a.75.75 0 0 1 .576 0l9 3.75c.28.116.463.39.462.692 0 8.25-4.875 14.625-9.462 16.442zm6.781-14.04l-8.46 8.392a.562.562 0 0 1-.795-.003l-4.026-4.058a.562.562 0 0 1 .003-.796l.4-.396a.562.562 0 0 1 .795.003l3.233 3.26 7.662-7.6a.562.562 0 0 1 .795.003l.396.4a.562.562 0 0 1-.003.795z"></path></svg>
+                </div>
+                <div class="setion-head-text">Secure</div>
+              </div>
+              <div class="setion-body">
+                Your private key giving access to your funds is never exposed. It remains protected withing a secure chip, designed to withstand highly sophisticated attacks.
+              </div>
+            </li>
+            <li class="setion-block">
+              <div class="setion-head">
+                <div class="setion-head-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path fill="#1D2028" d="M35.094 7.275L13.218 29.15l-7.734-7.734a.938.938 0 0 0-1.326 0l-.883.884a.938.938 0 0 0 0 1.325l9.28 9.281a.938.938 0 0 0 1.326 0L37.304 9.484a.938.938 0 0 0 0-1.326l-.884-.883a.937.937 0 0 0-1.326 0z"></path></svg>
+                </div>
+                <div class="setion-head-text">Easy to manage</div>
+              </div>
+              <div class="setion-body">
+                  Manage 23 coins & ERC-20 directly from your smartphone or computer with Ledger Live. To manage other assets, you can use external wallets.
+              </div>
+            </li>
+            <li class="setion-block">
+                <div class="setion-head">
+                  <div class="setion-head-icon">
+                      <svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000">
+                        <defs>
+                          <polygon fill="#000" id="path-1" points="0.0104347826 0.169391304 14.6290435 0.169391304 14.6290435 19.9895652 0.0104347826 19.9895652"></polygon>
+                        </defs>
+                        <g id="Product-page-LNX-5th-anniversary" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="Product-page-LNX-5th-anniversary---Desktop" transform="translate(-589.000000, -326.000000)">
+                            <g id="Section-1" transform="translate(138.000000, 155.000000)">
+                              <g id="Features" transform="translate(423.000000, 93.000000)">
+                                <g id="Bluetooth_FM_Black" transform="translate(28.000000, 78.000000)">
+                                  
+                                  <g id="Group-3">
+                                    <mask id="mask-2" fill="#000">
+                                      <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <g id="Clip-2"></g>
+                                    <path d="M7.31530435,20 C11.6450435,20 14.6290435,17.9433043 14.6290435,10.0846957 C14.6290435,2.22608696 11.6450435,0.169391304 7.31530435,0.169391304 C2.98556522,0.169391304 0,2.22608696 0,10.0846957 C0,17.9433043 2.98556522,20 7.31530435,20 Z M6.36573913,10.0846957 L2.82121739,6.53078261 L3.84834783,5.50365217 L6.67286957,8.32817391 L6.67286957,1.5586087 L11.8078261,6.69373913 L8.41669565,10.0846957 L11.8078261,13.4756522 L6.67286957,18.6107826 L6.67286957,11.8412174 L3.84834783,14.6657391 L2.82121739,13.6386087 L6.36573913,10.0846957 Z M8.116,15.1033043 L9.75565217,13.4638261 L8.1173913,11.8252174 L8.116,15.1033043 Z M8.116,5.06608696 L9.75565217,6.70573913 L8.1173913,8.34417391 L8.116,5.06608696 L8.116,5.06608696 Z" id="Fill-1" fill="#000"></path>
+                                  </g>
+                                  <path d="M16.7624348,1.03426087 L16.5742609,1.03426087 L16.5742609,1.548 L16.690087,1.548 C16.9577391,1.548 17.0445217,1.396 17.0445217,1.2586087 C17.0445217,1.09947826 16.9721739,1.03426087 16.7624348,1.03426087 Z M17.0589565,2.47443478 L16.596,1.73617391 L16.5742609,1.73617391 L16.5742609,2.47443478 L16.2848696,2.47443478 L16.2848696,0.802782609 L16.7913043,0.802782609 C17.1892174,0.802782609 17.3483478,0.969217391 17.3483478,1.22243478 C17.3483478,1.50469565 17.1747826,1.67826087 16.9071304,1.70713043 C16.9433043,1.7506087 17.0083478,1.84469565 17.0735652,1.94591304 L17.4208696,2.47443478 L17.0589565,2.47443478 Z M15.5973913,1.63478261 C15.5973913,2.28626087 16.1257391,2.8506087 16.7768696,2.8506087 C17.4353043,2.8506087 17.9563478,2.31513043 17.9563478,1.66382609 C17.9563478,1.0053913 17.4353043,0.448173913 16.7768696,0.448173913 C16.1257391,0.448173913 15.5973913,0.983652174 15.5973913,1.63478261 Z M18.3036522,1.6493913 C18.3036522,2.47443478 17.6017391,3.16904348 16.7768696,3.16904348 C15.9158261,3.16904348 15.2573913,2.50330435 15.2573913,1.6493913 C15.2573913,0.809913043 15.9375652,0.129913043 16.7768696,0.129913043 C17.637913,0.129913043 18.3036522,0.788347826 18.3036522,1.6493913 L18.3036522,1.6493913 Z" id="Fill-4" fill="#000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                  </div>
+                  <div class="setion-head-text">Mobile</div>
+                </div>
+                <div class="setion-body">
+                    Connect your device to the Ledger Live Mobile app and safely manage your crypto anywhere. Bluetooth® is not compatible with the Desktop application.
+                </div>
+              </li>
+              <li class="setion-block">
+                  <div class="setion-head">
+                    <div class="setion-head-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40"><path fill="#1D2028" d="M20.5 6.5c8.281 0 15 2.246 15 5V14c0 2.754-6.719 5-15 5-8.281 0-15-2.246-15-5v-2.5c0-2.754 6.719-5 15-5zm15 11.68v3.32c0 2.754-6.719 5-15 5-8.281 0-15-2.246-15-5v-3.32c3.223 2.265 9.121 3.32 15 3.32s11.777-1.055 15-3.32zm0 7.5V29c0 2.754-6.719 5-15 5-8.281 0-15-2.246-15-5v-3.32c3.223 2.265 9.121 3.32 15 3.32s11.777-1.055 15-3.32zM20.5 4C14.395 4 3 5.469 3 11.5V29c0 6.042 11.414 7.5 17.5 7.5 6.105 0 17.5-1.469 17.5-7.5V11.5C38 5.458 26.586 4 20.5 4z"></path></svg>
+                    </div>
+                    <div class="setion-head-text">Earn rewards</div>
+                  </div>
+                  <div class="setion-body">
+                      Receive rewards while holding your coins securely on your device using Ledger Live or an external wallet. 
+                  </div>
+                </li>
+                <li class="setion-block">
+                    <div class="setion-head">
+                      <div class="setion-head-icon">
+                          <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 40" style="enable-background:new 0 0 35 40;" xml:space="preserve">
+                            <style type="text/css">
+                              .st0{enable-background:new    ;}
+                              .st1{fill:#41CCB4;}
+                            </style>
+                            <g class="st0">
+                              <path class="st1" d="M34.2,35.9c0,0.5-0.4,0.9-0.9,0.9l-7.8,0c-0.5,0-0.9-0.4-0.9-0.9v-0.7c0-0.5,0.4-0.9,0.9-0.9l4.3,0l0.1-0.1
+                                L17.4,21.7L4.9,34.2L5,34.2l4.3,0c0.5,0,0.9,0.4,0.9,0.9v0.7c0,0.5-0.4,0.9-0.9,0.9l-7.8,0c-0.5,0-0.9-0.4-0.9-0.9l0-7.8
+                                c0-0.5,0.4-0.9,0.9-0.9h0.7c0.5,0,0.9,0.4,0.9,0.9l0,4.3l0.1,0.1L15.7,20L3.2,7.5L3.2,7.5l0,4.3c0,0.5-0.4,0.9-0.9,0.9H1.5
+                                c-0.5,0-0.9-0.4-0.9-0.9l0-7.8c0-0.5,0.4-0.9,0.9-0.9l7.8,0c0.5,0,0.9,0.4,0.9,0.9v0.7c0,0.5-0.4,0.9-0.9,0.9L5,5.7L4.9,5.8
+                                l12.5,12.5L29.9,5.8l-0.1-0.1l-4.3,0c-0.5,0-0.9-0.4-0.9-0.9V4.1c0-0.5,0.4-0.9,0.9-0.9l7.8,0c0.5,0,0.9,0.4,0.9,0.9l0,7.8
+                                c0,0.5-0.4,0.9-0.9,0.9h-0.7c-0.5,0-0.9-0.4-0.9-0.9l0-4.3l-0.1-0.1L19.1,20l12.5,12.5l0.1-0.1l0-4.3c0-0.5,0.4-0.9,0.9-0.9h0.7
+                                c0.5,0,0.9,0.4,0.9,0.9L34.2,35.9z"></path>
+                            </g>
+                            </svg>
+                      </div>
+                      <div class="setion-head-text">Extensive Capacity</div>
+                    </div>
+                    <div class="setion-body">
+                        The Ledger Nano X can store up to 100 applications at the same time, including Bitcoin, Ethereum, XRP, Bitcoin Cash, EOS, Stellar and many more. Manage all your assets on the same device, at the same time.
+                    </div>
+                  </li>
+          </ul>
+        </div> -->
+
+  <!-- <div class="section-wrap gotham-light">
+            <div class="section-title">Box contents</div>
+            <div class="des-img-wrap">
+              <ul class="des-wrap">
+                <li>1 hardware wallet</li>
+                <li>1 USB cable</li>
+                <li>1 getting started leaflet</li>
+                <li>3 recovery sheets</li>
+                <li>1 keychain strap</li>
+              </ul>
+              <div class="img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/2974/4858/files/Desktop-box-content_2x-min.png?v=1546776370" alt="">
+              </div>
+          </div>
+        </div> -->
+
+  <!-- </div>
+    </div>
+  </div> -->
+
+
+  <div class="page-width">
+    <div class="reinsurance-container">
+      <ul>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/images/shipping-plane.png" class="icon-shipping-plane" alt=""></div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="text">Without minimum purchase requirement</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/images/easy-return.png" class="icon-easy-return" alt=""></div>
+          <div class="block-content">
+            <p class="content-title">Easy Return</p>
+            <p class="text">14 days to return your order</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/images/secure-payment.png" class="icon-secure-payment" alt=""></div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="text">Without minimum purchase requirement</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/images/customer-support.png" class="icon-customer-support" alt=""></div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="text">Without minimum purchase requirement</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    .reinsurance-container ul {
+      border-top:1px solid #EDEDED;
+      padding-top:0.63rem;
+
+      display: flex;
+      justify-content: space-between;
+    }
+    .reinsurance-block{
+      background-color: #eee;
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .reinsurance-block .block-image{
+      width: 0.84rem;
+      height: 0.84rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon-shipping-plane{
+      width: 0.72rem;
+      height: 0.71rem;
+    }
+    .icon-easy-return{
+      width: 0.67rem;
+      height: 0.67rem;
+    }
+    .icon-secure-payment{
+      width: 0.74rem;
+      height: 0.64rem;
+    }
+    .icon-customer-support{
+      width: 0.84rem;
+      height: 0.77rem;
+    }
+
+    .reinsurance-block .block-content{
+      margin-top:0.7rem;
+    }
+    .reinsurance-block .block-content .content-title{
+      font-size: 0.23rem;
+      font-weight: bold;
+      color:#0E1523;
+    }
+
+
+
+
+
+
+
+    .section-wrap {
+      margin-bottom: 20px;
+    }
+
+    .section-wrap .section-title {
+      margin: 20px 0;
+      font-size: 36px;
+      color: #142533;
+      font-weight: bold;
+    }
+
+    .feature-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .feature-wrap li {
+      width: 45%;
+      margin-bottom: 20px;
+    }
+
+    .feature-wrap li .setion-head {
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-wrap li .setion-head-icon svg {
+      margin-right: 25px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature-wrap li .setion-head-icon svg,
+    .feature-wrap li .setion-head-icon path {
+      fill: #41ccb4;
+    }
+
+    .feature-wrap li .setion-head-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #142533;
+    }
+
+    .feature-wrap li .setion-body {
+      margin-left: 65px;
+      font-size: 16px;
+      line-height: 1.88;
+      color: #666;
+    }
+
+
+    .des-img-wrap {
+      display: flex;
+    }
+
+    .des-img-wrap .des-wrap {
+      padding-left: 40px;
+    }
+
+    .des-img-wrap .des-wrap li {
+      position: relative;
+      font-size: 16px;
+      line-height: 30px;
+      color: #666;
+    }
+
+    .des-img-wrap .des-wrap li:before {
+      display: inline-block;
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      background-color: #666;
+      margin-left: 4px;
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+
+    .des-img-wrap .img-wrap {
+      flex: 1;
+    }
+
+    .des-img-wrap .img-wrap img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 749px) {
+      .feature-wrap li {
+        width: 100%;
+      }
+
+      .des-img-wrap .des-wrap {
+        padding-left: 0;
+      }
+
+      .des-img-wrap .img-wrap {
+        display: none;
+      }
+    }
+
+
+
+    .bodyer {
+      width: 100%;
+    }
+
+    .page-width {
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+    }
+
+    .page-width {
+      *zoom: 1;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .fl {
+      float: left;
+    }
+
+    .fr {
+      float: right;
+    }
+
+    .sec-contain {
+      width: 100%;
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-txt sec-contain clearfix">
+
+
+        <div class="p-us about-item fl ">
+          <div class="connect-title">产品</div>
+          <ul>
+            <li><a href="download?lang=zh-cn" target="_blank">HyperPay</a></li>
+            <li><a href="https://coinw.ai/" target="_blank">CoinW 交易所</a></li>
+          </ul>
+        </div>
+
+        <div class="c-us about-item fl">
+          <div class="connect-title">联系我们</div>
+          <ul>
+            <li><a href="https://hyperpayhelp.zendesk.com/hc/zh-cn" target="_blank">常见问题</a></li>
+            <li><a href="https://hyperpayhelp.zendesk.com/hc/zh-cn/requests/new" target="_blank">联系我们</a></li>
+            <li><a href="/latest_news?lang=zh-cn" class="">公告中心</a></li>
+            <li><a href="/support?lang=zh-cn" class="">帮助中心</a></li>
+          </ul>
+        </div>
+
+        <div class="l-us about-item fl">
+          <div class="connect-title">关于</div>
+          <ul>
+
+            <li><a
+                href="https://hyperpayhelp.zendesk.com/hc/zh-cn/articles/360001254595-%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D"
+                class="">公司介绍</a></li>
+            <li><a href="/policy?lang=zh-cn" class="">隐私条款</a></li>
+          </ul>
+        </div>
+        <div class="of-me-us about-item fr">
+          <div class="connect-title">官方媒体</div>
+          <ul class="of-item clearfix">
+            <li><a href="https://www.facebook.com/hyperpayofficial/" target="_blank"><i
+                  class="iconfont iconsocial-facebook"></i></a></li>
+            <li><a href="https://twitter.com/HyperPay_tech" target="_blank"><i
+                  class="iconfont iconsocial-twitter"></i></a></li>
+            <li><a href="https://t.me/joinchat/NRy8SBRPH6u2Sol72GAMAw" target="_blank"><i
+                  class="iconfont iconsocial-telegram"></i></a></li>
+          </ul>
+          <ul class="of-item clearfix">
+            <li>
+              <a href="javascript:void(0)" target="_blank" class="icon-qq"><i class="iconfont iconsocial-qq"></i>
+
+                <div class="footer-item-hover">
+                  <img src="/data/upload/2019-08/20190815150816181766.png">
+                  <span>扫描二维码</span>
+
+                </div>
+
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" target="_blank" class="icon-wx"><i class="iconfont iconsocial-wechat"></i>
+                <div class="footer-item-hover">
+                  <img src="/data/upload/2019-09/20190910125220159777.jpeg">
+                  <span>扫描二维码</span>
+                </div>
+              </a>
+            </li>
+            <li><a href="https://www.weibo.com/p/1005056358820994" target="_blank"><i
+                  class="iconfont iconsocial-weibo"></i></a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-txt sec-contain">
+        <div class="clearfix">
+          <h3 class="fl">Copyright © 2019 HyperPay. </h3>
+          <h3 class="from fr"><a>Address: Tower C, TML Plaza, Tsuen Wan, Hong Kong</a></h3>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <style>
+    .footer {
+      color: #0e1523;
+    }
+
+    .footer .footer-top {
+      background-color: #f0f4f7;
+    }
+
+    .footer .footer-txt {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer .about-item {
+      width: 20%;
+    }
+
+    .footer .about-item .connect-title {
+      font-size: 0.2rem;
+      font-family: "gotham-medium";
+      margin-bottom: 0.2rem;
+    }
+
+    .footer .about-item li a {
+      font-size: 0.16rem;
+      font-family: "gotham-book";
+      height: 0.3rem;
+      line-height: 0.3rem;
+      color: #0e1523;
+      display: inline-block;
+      padding-bottom: 0.05rem;
+      -webkit-transition: all .6s;
+      -o-transition: all .6s;
+      transition: all .6s;
+    }
+
+    .footer .about-item li a:hover,
+    .footer .about-item li a.active {
+      color: #1a72fe;
+    }
+
+    .footer .of-me-us {
+      width: auto;
+    }
+
+    .footer .of-me-us .connect-title {
+      text-align: left;
+    }
+
+    .footer .of-me-us .of-item {
+      display: flex;
+    }
+
+    .footer .of-me-us li {
+      float: left;
+      margin-right: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .footer .of-me-us li .iconfont {
+      color: #999;
+      width: 0.27rem;
+      font-size: 0.24rem;
+    }
+
+    .footer .of-me-us li .iconfont:hover {
+      color: #1a72fe;
+    }
+
+    .footer .of-me-us li a {
+      position: relative;
+    }
+
+    .footer .of-me-us li a img {
+      display: none;
+    }
+
+    .footer .of-me-us li a .footer-item-hover {
+      position: absolute;
+      left: 0;
+      margin-left: -0.9rem;
+      bottom: 100%;
+      width: 2rem;
+      min-height: 2rem;
+      max-width: none;
+      padding: 0.11rem 0;
+      z-index: -10;
+      opacity: 0;
+      text-align: center;
+      background: #fff;
+    }
+
+    .footer .of-me-us li a .footer-item-hover img {
+      width: 1.81rem;
+      height: 1.81rem;
+      margin: 0 auto;
+      opacity: 1;
+      display: block;
+    }
+
+    .footer .of-me-us li a .footer-item-hover span {
+      font-size: 0.18rem;
+      color: #0E1523;
+      line-height: 1;
+    }
+
+    .footer .of-me-us li a.icon-qq:hover .footer-item-hover,
+    .footer .of-me-us li a.icon-wx:hover .footer-item-hover {
+      opacity: 1;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+      bottom: 140%;
+      z-index: 10;
+    }
+
+    .footer .footer-bottom {
+      background-color: #fff;
+    }
+
+    .footer .footer-bottom .footer-txt {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+
+    .footer .footer-bottom .footer-txt h3 {
+      font-size: 0.16rem;
+      font-family: "gotham-medium";
+      color: #0e1523;
+    }
+
+    .footer .footer-bottom .footer-txt div {
+      color: #77828f;
+      line-height: 0.35rem;
+      height: 0.35rem;
+    }
+
+    .footer .footer-bottom .footer-txt div a {
+      color: #77828f;
+    }
+
+    .footer .footer-bottom .footer-txt .from {
+      text-align: right;
+    }
+
+    .footer .footer-bottom .footer-txt .from em {
+      font-weight: bold;
+      font-family: "gotham-book";
+      color: #b8c1cc;
+    }
+
+    @media screen and (max-width: 749px) {
+      .footer .footer-txt {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+      }
+
+      .footer .about-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer .about-item .connect-title {
+        font-size: 0.32rem;
+        margin-bottom: 0.55rem;
+        font-weight: bold;
+      }
+
+      .footer .about-item ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .footer .about-item li {
+        width: 50%;
+      }
+
+      .footer .about-item li a {
+        font-size: 0.28rem;
+        height: auto;
+        line-height: 1;
+        padding-bottom: 0.35rem;
+      }
+
+      .footer .of-me-us {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .footer .of-me-us .connect-title {
+        width: 100%;
+      }
+
+      .footer .of-me-us .of-item {
+        width: 50%;
+      }
+
+      .footer .of-me-us li {
+        width: 33.33%;
+        margin-right: 0;
+        margin-bottom: 0.1rem;
+      }
+
+      .footer .of-me-us li a {
+        padding-bottom: 0.15rem;
+      }
+
+      .footer .of-me-us li a .footer-item-hover {
+        margin-left: 0;
+      }
+
+      .footer .of-me-us li .iconfont {
+        font-size: 0.5rem;
+        margin-right: 0.1rem;
+      }
+
+      .footer .footer-bottom {
+        border-top: 1px solid #d9e1e7;
+      }
+
+      .footer .footer-bottom .footer-txt h3 {
+        display: block;
+        font-size: 0.28rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .footer .footer-bottom .footer-txt div {
+        font-size: 0.28rem;
+        line-height: 0.5rem;
+        height: auto;
+      }
+
+      .footer .footer-bottom .footer-txt .from {
+        float: left;
+        text-align: left;
+        /* padding-top: 0.4rem; */
+      }
+    }
+  </style>
+
+
+
+</body>
+
+</html>

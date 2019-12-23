@@ -1,0 +1,1232 @@
+{% if section.settings.message %}
+<style>
+  {
+    % if section.settings.logo !=blank %
+  }
+
+  .site-header__logo-image {
+    max-width: {
+        {
+        section.settings.logo_max_width | escape
+      }
+    }
+
+    px;
+  }
+
+    {
+    % endif %
+  }
+
+    {
+    % if section.settings.align_logo=='left'%
+  }
+
+  .site-header__logo-image {
+    margin: 0;
+  }
+
+    {
+    % endif %
+  }
+</style>
+{% endif %}
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  {% if section.settings.message %}
+  {% if section.settings.home_page_only == false or request.page_type == 'index' %}
+  <style>
+    .announcement-bar {
+      background-color: {
+          {
+          section.settings.color_bg
+        }
+      }
+
+      ;
+    }
+
+    .announcement-bar--link:hover {
+        {
+        % assign brightness=section.settings.color_bg | color_brightness %
+      }
+
+        {
+        % if brightness <=192 %
+      }
+
+        {
+        % assign lightenAmount=255 | minus: brightness | divided_by: 255 | times: 16 %
+      }
+
+      background-color: {
+          {
+          section.settings.color_bg | color_lighten: lightenAmount
+        }
+      }
+
+      ;
+
+        {
+        % else %
+      }
+
+        {
+        % assign darkenAmount=255 | divided_by: brightness | times: 8 %
+      }
+
+      background-color: {
+          {
+          section.settings.color_bg | color_darken: darkenAmount
+        }
+      }
+
+      ;
+
+        {
+        % endif %
+      }
+    }
+
+    .announcement-bar__message {
+      color: {
+          {
+          section.settings.color_text
+        }
+      }
+
+      ;
+    }
+  </style>
+
+  {% if section.settings.message_link == blank %}
+  <div class="announcement-bar">
+    {% else %}
+    <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+      {% endif %}
+
+      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+
+      {% if section.settings.message_link == blank %}
+  </div>
+  {% else %}
+  </a>
+  {% endif %}
+
+  {% endif %}
+  {% endif %}
+
+  <!-- hyperpay header开始 -->
+  <header class="header site-header border-bottom logo--left" role="banner">
+    <div class="header-top sec-contain clearfix">
+      <div class="top_logo fl">
+        <a href="https://hyperpay.me/?lang=en" target="_blank">
+          <img src="https://www.hyperpay.tech/static/dist/images/common/logo.svg" alt="" class="logo_img">
+        </a>
+      </div>
+      <div class="top_nav fl clearfix">
+        <nav class="nav clearfix">
+          <ul class="clearfix gotham-medium">
+            <li class=""><a href="https://hyperpay.me/wallet?lang=en" target="_blank">Wallets</a></li>
+            <li class=""><a href="https://hyperpay.me/trading?lang=en" target="_blank">Trading</a></li>
+            <li class=""><a href="https://hyperpay.me/pos?lang=en" target="_blank">Staking</a></li>
+            <li class=""><a href="https://hyperpay.me/wealth?lang=en" target="_blank">Investment</a></li>
+            <li class=""><a href="https://hyperpay.me/loan?lang=en" target="_blank">BitLoan</a></li>
+            <li class=""><a href="https://hyperpay.me/cloud?lang=en" target="_blank">Cloud Mining</a></li>
+            <li class=""><a href="https://hyperpay.me/latest_news?lang=en" target="_blank">News</a></li>
+            <li class=""><a href="https://hyperpay.me/support?lang=en" target="_blank">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="top_right fr">
+        <!-- <span class="language-side gotham-medium">
+          <i class="iconfont iconlanguage-icon"></i>
+          En
+          <div class="lan-content">
+            <a href="?lang=zh-cn">中文</a> <a href="?lang=korea">한국어</a> </div>
+        </span> -->
+
+        <a href="https://hyperpay.me/download?lang=en" target="_blank" class="download-btn">
+          <span><img src="https://www.hyperpay.tech/static/dist/images/common/download-icon.svg">Download App</span>
+        </a>
+
+        <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart pc-cart">
+            {% include 'icon-cart' %}
+            <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
+              <span data-cart-count>{{ cart.item_count }}</span>
+              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+            </div>
+          </a>
+
+      </div>
+
+      <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart mobile-cart">
+        {% include 'icon-cart' %}
+        <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+        <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
+          <span data-cart-count>{{ cart.item_count }}</span>
+          <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+        </div>
+      </a>
+
+      <span class="mobile-nav-btn"><i></i></span>
+    </div>
+  </header>
+  <!-- 移动端nav -->
+
+  <div class="mobile-nav-container">
+      <div class="mobile-nav">
+          <div class="flex-box1">
+              <ul>
+                  <li class=""><a href="https://hyperpay.me/wallet?lang=en" target="_blank">Wallets</a></li>
+                  <li class=""><a href="https://hyperpay.me/trading?lang=en" target="_blank">Trading</a></li>
+                  <li class=""><a href="https://hyperpay.me/pos?lang=en" target="_blank">Staking</a></li>
+                  <li class=""><a href="https://hyperpay.me/wealth?lang=en" target="_blank">Investment</a></li>
+                  <li class=""><a href="https://hyperpay.me/loan?lang=en" target="_blank">BitLoan</a></li>
+                  <li class=""><a href="https://hyperpay.me/cloud?lang=en" target="_blank">Cloud Mining</a></li>
+                  <li class=""><a href="https://hyperpay.me/latest_news?lang=en" target="_blank">News</a></li>
+                  <li class=""><a href="https://hyperpay.me/support?lang=en" target="_blank">Support</a></li>
+              </ul>
+          </div>
+          <div class="icon-wrap fl">
+              <a href="https://hyperpay.me/app_down?lang=en" target="_blank"><span class="down-btn">Download App</span></a>
+          </div>
+  
+          <!-- <div class="flex-box2">
+              <div class="lang-wrap">
+                  <a href="?lang=en" class="lang-btn active">English</a>
+                  <em>|</em>
+                  <a href="?lang=zh-cn" class="lang-btn ">中文</a>
+                  <em>|</em>
+                  <a href="?lang=korea" class="lang-btn ">한국어</a>
+              </div>
+          </div> -->
+      </div>
+  </div>
+
+  <script>
+    // 小屏导航
+    $(function () {
+      $(document).on("click", ".mobile-nav-btn", function () {
+        $(".mobile-nav-container").toggleClass("active");
+        $(".mobile-nav-btn").toggleClass("active");
+      });
+    });
+  </script>
+
+  <style>
+    .header {
+      position: relative;
+      z-index: 101;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ddd;
+      color: #bec3c8;
+      padding: 0.1rem 0;
+
+      width: 100%;
+      position: fixed;
+      height: 0.69rem;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+    }
+
+    .header .header-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .top_logo {
+      text-align: right;
+    }
+
+    .header .top_logo .logo_img {
+      height: 0.4rem;
+      margin: 0 3.5% 0 0;
+    }
+
+    .header .top_nav {
+      flex: 1;
+      display: block;
+    }
+
+    .header .top_nav nav {
+      max-width: 1000px;
+    }
+
+    .header .top_nav nav ul {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.4rem;
+    }
+
+    .header .top_nav li {
+      font-size: 15px;
+      height: 0.51rem;
+      line-height: 0.51rem;
+    }
+
+    .header .top_nav li a {
+      color: #77828f;
+    }
+
+    .header .top_nav li:hover,
+    .header .top_nav li.active {
+      color: #0e1523;
+    }
+
+    .header .top_nav li:hover a,
+    .header .top_nav li.active a {
+      color: #0e1523;
+    }
+
+    .header .top_right {
+      /* width: 24.7%; */
+      flex-shrink: 0;
+      font-size: 0.15rem;
+      height: 0.51rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .header .top_right i {
+      font-size: 0.1rem;
+      margin-left: 0.03rem;
+    }
+
+    .header .top_right .language-side {
+      margin-right: 8%;
+      height: 0.51rem;
+      line-height: 0.51rem;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      padding-right: 14px;
+      display: flex;
+      color: #77828F;
+    }
+
+    .header .top_right .language-side i {
+      font-size: 0.2rem;
+      margin-left: 0;
+      margin-right: 0.08rem;
+    }
+
+    .header .top_right .language-side:after {
+      position: absolute;
+      border-bottom: 4px transparent dashed;
+      border-left: 4px transparent dashed;
+      border-right: 4px transparent dashed;
+      border-top: 4px #0e1523 solid;
+      top: 52%;
+      transform: translate(0, -50%);
+      right: 0;
+      display: block;
+      content: "";
+    }
+
+    .header .top_right .language-side:hover .lan-content,
+    .header .top_right .language-side.active .lan-content {
+      opacity: 1;
+    }
+
+    .header .top_right .lan-content {
+      opacity: 0;
+      position: absolute;
+      right: -0.2rem;
+      top: 0.48rem;
+      z-index: 99;
+      width: 0.8rem;
+      border-radius: 0.05rem;
+      background-color: #fff;
+      box-shadow: 0px 0.07rem 0.2rem 0px rgba(0, 0, 0, 0.17);
+      overflow: hidden;
+      transition: all .33s ease 0s;
+    }
+
+    .header .top_right .lan-content a {
+      display: block;
+      width: 100%;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      font-size: 0.15rem;
+      text-align: center;
+      color: #0E1523;
+      font-weight: 400;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+    }
+
+    .header .top_right .lan-content a:hover,
+    .header .top_right .lan-content a.active {
+      color: #1A72FE;
+    }
+
+    .header .top_right .download-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .header .top_right .download-btn span {
+      /* width: 1.77rem; */
+      /* max-width: 180px; */
+      padding: 0 0.15rem;
+      height: 0.45rem;
+      max-height: 0.51rem;
+      background: #1A72FE;
+      border-radius: 0.23rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: #fff;
+      font-family: "gotham-medium";
+    }
+
+    .header .top_right .download-btn span:hover {
+      background: #0054D9 !important;
+    }
+
+    .header .top_right .download-btn img {
+      width: 0.18rem;
+      margin-right: 0.11rem;
+    }
+
+    .header .top_right .terminal {
+      display: inline-block;
+      width: 0.51rem;
+      height: 0.51rem;
+      border-radius: 0.08rem;
+      margin-right: 1.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header .top_right .terminal .iconfont {
+      font-size: 0.3rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .header .top_right .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .header .top_right .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .header .top_right .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+    }
+
+    /* 移动端 */
+    .mobile-nav-btn {
+      position: absolute;
+      top: 50%;
+      right: 0.55rem;
+      transform: translate(0, -50%);
+      display: none;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mobile-nav-btn.active::before {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .mobile-nav-btn.active i {
+      opacity: 0;
+      transition: all .2s ease;
+    }
+
+    .mobile-nav-btn.active::after {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mobile-nav-btn::before,
+    .mobile-nav-btn::after,
+    .mobile-nav-btn i {
+      position: absolute;
+      display: inline-block;
+      width: 50%;
+      left: 50%;
+      height: 2px;
+      border-radius: 0.1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: .3s ease-in-out;
+    }
+
+    .mobile-nav-btn::before {
+      content: '';
+      top: 34%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn::after {
+      content: '';
+      top: 67%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn i {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      transition: all .3s linear;
+    }
+
+    /* 内容 */
+    .mobile-nav-container {
+      position: fixed;
+      left: 0;
+      /* top: 50px; */
+      top: 0.69rem;
+      width: 100%;
+      height: 0;
+      color: #77828F;
+      background-color: #fff;
+      z-index: 100;
+      overflow: hidden;
+      transition: all .6s ease-in-out;
+    }
+
+    .mobile-nav-container a {
+      color: #77828F;
+    }
+
+    .mobile-nav-container.active {
+      height: 100%;
+    }
+
+    .mobile-nav-container .logo-wrap {
+      position: relative;
+      height: 0.5rem;
+      display: flex;
+      align-items: center;
+      display: none;
+    }
+
+    .mobile-nav-container .mobile-nav {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      padding: 1.33rem 0 1rem;
+    }
+
+    .mobile-nav-container li {
+      text-align: center;
+      font-size: 0.32rem;
+      margin-bottom: 0.5rem;
+      font-family: "gotham-medium";
+      cursor: pointer;
+    }
+
+    .mobile-nav-container li.active {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container li.active a {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .lang-wrap {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mobile-nav-container .lang-btn {
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.32rem;
+      padding: 0 0.4rem;
+      font-family: "gotham-medium";
+      color: #77828F;
+    }
+
+    .mobile-nav-container .lang-btn.active,
+    .mobile-nav-container .lang-btn:hover {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .logo img {
+      width: 1.79rem;
+    }
+
+    .mobile-nav-container .logo a {
+      display: block;
+    }
+
+    .mobile-nav-container .menu-btn {
+      position: absolute;
+      right: 0.1rem;
+      top: 50%;
+      color: #fff;
+      -webkit-transform: translate(0px, -50%);
+      -moz-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%);
+    }
+
+    .mobile-nav-container .menu-btn .iconfont {
+      font-size: 0.3rem;
+    }
+
+    .mobile-nav-container .mobile-nav-btn {
+      background: none;
+    }
+
+    .mobile-nav-container .icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .mobile-nav-container .icon-wrap span {
+      float: left;
+      margin-right: 0.6rem;
+    }
+
+    .mobile-nav-container .icon-wrap .down-btn {
+      width: 3.56rem;
+      height: 0.98rem;
+      line-height: 0.98rem;
+      background: #1a71fd;
+      opacity: 1;
+      border-radius: 1.6rem;
+      font-size: 0.28rem;
+      color: #fff;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 0.08rem;
+      margin-right: 4.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal .iconfont {
+      font-size: 0.5rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+      margin-right: 0;
+    }
+
+    /* 购物车图标 */
+    .header-top .mobile-cart{
+      display: none;
+    }
+    .pc-cart{
+      position: relative;
+    }
+    .pc-cart svg {
+        /* height: 23px;
+        width: 22px; */
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+        height:0.25rem;
+        width:0.25rem;
+    }
+
+    @media screen and (max-width:970px) {
+      /* 头部提前变成移动样式 */
+      .header .top_nav,
+      .header .top_right {
+        display: none;
+      }
+      .mobile-nav-btn {
+        display: inline-block;
+      }
+
+      /* 移动样式设置固定的高度 */
+      .header{
+        height: 50px;
+        padding: 0;
+      }
+      .header .header-top{
+        height: 50px;
+      }
+      .header .top_logo .logo_img{
+        height: 30px;
+      }
+      .page-container .main-content {
+        padding-top: 70px;
+      }
+
+      /* 购物车图标 */
+      .header-top .mobile-cart{
+        width: 0.7rem;
+        height: 0.7rem;
+        padding: 0;
+
+        position: absolute;
+        top: 50%;
+        right: 1.2rem;
+        transform: translate(0, -50%);
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .header-top .mobile-cart .site-header__cart-count {
+          top: 0.04rem;
+          right: 0;
+          border-radius: 50%;
+          min-width: 0.24rem;
+          height: 0.24rem;
+          line-height: 0.24rem;
+      }
+      .header-top .mobile-cart .site-header__cart-count span {
+        font-size: 0.20rem;
+        padding: 0;
+      }
+      .header-top .mobile-cart svg {
+        height: 0.3rem;
+        width:  0.3rem;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .header .top_nav li {
+        font-size: 13px;
+      }
+    }
+  </style>
+  <!-- hyperpay header结束 -->
+
+
+
+
+  <!-- {% if section.settings.align_logo == 'center' %}
+  <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
+    {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
+  </nav>
+  {% endif %} -->
+</div>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+  {% endif %}
+  "sameAs": [
+    {{ settings.social_twitter_link | json }},
+    {{ settings.social_facebook_link | json }},
+    {{ settings.social_pinterest_link | json }},
+    {{ settings.social_instagram_link | json }},
+    {{ settings.social_tumblr_link | json }},
+    {{ settings.social_snapchat_link | json }},
+    {{ settings.social_youtube_link | json }},
+    {{ settings.social_vimeo_link | json }}
+  ],
+  "url": {{ shop.url | append: page.url | json }}
+}
+</script>
+
+{% if request.page_type == 'index' %}
+{% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ shop.url | append: page.url | json }}
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+"name": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Header",
+"es": "Encabezado",
+"fi": "Ylätunniste",
+"fr": "En-tête",
+"hi": "हैडर",
+"it": "Header",
+"ja": "ヘッダー",
+"ko": "머리글",
+"ms": "Pengepala",
+"nb": "Header",
+"nl": "Koptekst",
+"pt-BR": "Cabeçalho",
+"pt-PT": "Cabeçalho",
+"sv": "Rubrik",
+"th": "ส่วนหัว",
+"zh-CN": "标头",
+"zh-TW": "標頭"
+},
+"settings": [
+{
+"type": "radio",
+"id": "align_logo",
+"label": {
+"da": "Logojustering",
+"de": "Logo-Ausrichtung",
+"en": "Logo alignment",
+"es": "Alineación de logotipo",
+"fi": "Logon tasaus",
+"fr": "Alignement du logo",
+"hi": "लोगो संरेखण",
+"it": "Allineamento logo",
+"ja": "ロゴアラインメント",
+"ko": "로고 정렬",
+"ms": "Penjajaran logo",
+"nb": "Logojustering",
+"nl": "Logo-uitlijning",
+"pt-BR": "Alinhamento do logotipo",
+"pt-PT": "Alinhamento do logótipo",
+"sv": "Logojustering",
+"th": "การจัดวางโลโก้",
+"zh-CN": "logo 对齐方式",
+"zh-TW": "商標對齊"
+},
+"default": "left",
+"options": [
+{
+"value": "left",
+"label": {
+"da": "Venstre",
+"de": "Links",
+"en": "Left",
+"es": "Izquierda",
+"fi": "Vasen",
+"fr": "Gauche",
+"hi": "बाएँ",
+"it": "Sinistra",
+"ja": "左",
+"ko": "왼쪽",
+"ms": "Kiri",
+"nb": "Venstre",
+"nl": "Links",
+"pt-BR": "Esquerda",
+"pt-PT": "Esquerda",
+"sv": "Vänster",
+"th": "ด้านซ้าย",
+"zh-CN": "左侧",
+"zh-TW": "左方"
+}
+},
+{
+"value": "center",
+"label": {
+"da": "Centreret",
+"de": "Mittig",
+"en": "Centered",
+"es": "Centrada",
+"fi": "Keskitetty",
+"fr": "Centré",
+"hi": "केंद्र",
+"it": "Centrato",
+"ja": "中央揃え",
+"ko": "센터 맞추기",
+"ms": "Ditengah",
+"nb": "Sentrert",
+"nl": "Gecentreerd",
+"pt-BR": "Centralizado",
+"pt-PT": "Centrado",
+"sv": "Centrera",
+"th": "ตรงกลาง",
+"zh-CN": "居中",
+"zh-TW": "置中"
+}
+}
+]
+},
+{
+"type": "image_picker",
+"id": "logo",
+"label": {
+"da": "Logobillede",
+"de": "Logo-Foto",
+"en": "Logo image",
+"es": "Logotipo",
+"fi": "Logokuva",
+"fr": "Image du logo",
+"hi": "लोगो इमेज",
+"it": "Immagine del logo",
+"ja": "ロゴ画像",
+"ko": "로고 이미지",
+"ms": "Imej logo",
+"nb": "Logobilde",
+"nl": "Afbeelding van logo",
+"pt-BR": "Imagem do logotipo",
+"pt-PT": "Imagem do logótipo",
+"sv": "Logobild",
+"th": "รูปภาพโลโก้",
+"zh-CN": "logo 图片",
+"zh-TW": "標誌圖片"
+}
+},
+{
+"type": "range",
+"id": "logo_max_width",
+"label": {
+"da": "Tilpasset logobredde",
+"de": "Logobreite",
+"en": "Custom logo width",
+"es": "Ancho del logotipo personalizado",
+"fi": "Mukautetun logon leveys",
+"fr": "Largeur personnalisée du logo",
+"hi": "कस्टम लोगो की चौड़ाई",
+"it": "Larghezza logo personalizzato",
+"ja": "ロゴの幅をカスタムする",
+"ko": "사용자 지정 로고 폭",
+"ms": "Lebar logo tersuai",
+"nb": "Tilpasset logobredde",
+"nl": "Aangepaste logo-breedte",
+"pt-BR": "Largura do logotipo personalizado",
+"pt-PT": "Largura de logótipo personalizada",
+"sv": "Anpassad logotypsbredd",
+"th": "ความกว้างของโลโก้แบบกำหนดเอง",
+"zh-CN": "自定义 logo 宽度",
+"zh-TW": "自訂商標寬度"
+},
+"min": 50,
+"max": 250,
+"step": 5,
+"unit": {
+"da": "px",
+"de": "px",
+"en": "px",
+"es": "px",
+"fi": "px",
+"fr": "px",
+"hi": "px",
+"it": "px",
+"ja": "px",
+"ko": "px",
+"ms": "px",
+"nb": "px",
+"nl": "px",
+"pt-BR": "px",
+"pt-PT": "px",
+"sv": "px",
+"th": "px",
+"zh-CN": "px",
+"zh-TW": "像素"
+},
+"default": 100
+},
+{
+"type": "link_list",
+"id": "main_linklist",
+"label": {
+"da": "Menu",
+"de": "Menü",
+"en": "Menu",
+"es": "Menú",
+"fi": "Valikko",
+"fr": "Menu",
+"hi": "मेनू",
+"it": "Menu",
+"ja": "メニュー",
+"ko": "메뉴",
+"ms": "Menu",
+"nb": "Meny",
+"nl": "Menu",
+"pt-BR": "Menu",
+"pt-PT": "Menu",
+"sv": "Meny",
+"th": "เมนู",
+"zh-CN": "菜单",
+"zh-TW": "選單"
+},
+"default": "main-menu"
+},
+{
+"type": "header",
+"content": {
+"da": "Meddelelseslinje",
+"de": "Ankündigungsbereich",
+"en": "Announcement bar",
+"es": "Barra de anuncios",
+"fi": "Ilmoituspalkki",
+"fr": "Barre d'annonces",
+"hi": "घोषणा बार",
+"it": "Barra degli annunci",
+"ja": "告知バー",
+"ko": "공지 표시줄",
+"ms": "Bar pengumuman",
+"nb": "Kunngjøringslinje",
+"nl": "Aankondigingsbalk",
+"pt-BR": "Barra de anúncios",
+"pt-PT": "Barra de comunicado",
+"sv": "Meddelandefält",
+"th": "แถบประกาศ",
+"zh-CN": "公告栏",
+"zh-TW": "公告列"
+}
+},
+{
+"type": "checkbox",
+"id": "message",
+"label": {
+"da": "Vis meddelelse",
+"de": "Ankündigung anzeigen",
+"en": "Show announcement",
+"es": "Mostrar anuncio",
+"fi": "Näytä ilmoitus",
+"fr": "Afficher l'annonce",
+"hi": "घोषणा डिखाएं",
+"it": "Mostra annuncio",
+"ja": "告知を表示する",
+"ko": "공지 표시",
+"ms": "Tunjukkan pengumuman",
+"nb": "Vis kunngjøring",
+"nl": "Aankondiging weergeven",
+"pt-BR": "Exibir anúncio",
+"pt-PT": "Mostrar comunicado",
+"sv": "Visa tillkännagivande",
+"th": "แสดงประกาศ",
+"zh-CN": "显示公告",
+"zh-TW": "顯示公告"
+},
+"default": false
+},
+{
+"type": "checkbox",
+"id": "home_page_only",
+"label": {
+"da": "Kun startside",
+"de": "Nur Startseite",
+"en": "Home page only",
+"es": "Solo página de inicio",
+"fi": "Vain kotisivu",
+"fr": "Page d'accueil uniquement",
+"hi": "केवल होमपेज",
+"it": "Solo home page",
+"ja": "ホームページのみ",
+"ko": "홈페이지만",
+"ms": "Halaman utama sahaja",
+"nb": "Kun på startsiden",
+"nl": "Alleen startpagina",
+"pt-BR": "Apenas na página inicial",
+"pt-PT": "Apenas a página inicial",
+"sv": "Endast hemsida",
+"th": "หน้าแรกเท่านั้น",
+"zh-CN": "仅主页",
+"zh-TW": "僅限首頁"
+},
+"default": true
+},
+{
+"type": "text",
+"id": "message_text",
+"label": {
+"da": "Tekst",
+"de": "Text",
+"en": "Text",
+"es": "Texto",
+"fi": "Teksti",
+"fr": "Texte",
+"hi": "टेक्स्ट",
+"it": "Testo",
+"ja": "テキスト",
+"ko": "텍스트",
+"ms": "Teks",
+"nb": "Tekst",
+"nl": "Tekst",
+"pt-BR": "Texto",
+"pt-PT": "Texto",
+"sv": "Text",
+"th": "ข้อความ",
+"zh-CN": "文本",
+"zh-TW": "文字"
+},
+"default": {
+"da": "Meddel noget her",
+"de": "Hier etwas ankündigen",
+"en": "Announce something here",
+"es": "Anuncia algo aquí",
+"fi": "Ilmoita jotakin tässä",
+"fr": "Annoncez quelque chose ici",
+"hi": "यहां कुछ घोषित करें",
+"it": "Annuncia qualcosa qui",
+"ja": "ここで告知してください",
+"ko": "여기에 공지하십시오",
+"ms": "Mengumumkan sesuatu di sini",
+"nb": "Kunngjør noe her",
+"nl": "Kondig hier iets aan",
+"pt-BR": "Anuncie algo aqui",
+"pt-PT": "Anunciar algo aqui",
+"sv": "Meddela något här",
+"th": "ประกาศข้อความที่นี่",
+"zh-CN": "在此处进行公告",
+"zh-TW": "在此公告資訊"
+}
+},
+{
+"type": "url",
+"id": "message_link",
+"label": {
+"da": "Link",
+"de": "Link",
+"en": "Link",
+"es": "Enlace",
+"fi": "Linkki",
+"fr": "Lien",
+"hi": "लिंक",
+"it": "Link",
+"ja": "リンク",
+"ko": "링크",
+"ms": "Pautan",
+"nb": "Kobling",
+"nl": "Link",
+"pt-BR": "Link",
+"pt-PT": "Ligação",
+"sv": "Länk",
+"th": "ลิงก์",
+"zh-CN": "链接",
+"zh-TW": "連結"
+},
+"info": {
+"da": "Valgfri",
+"de": "Optional",
+"en": "Optional",
+"es": "Opcional",
+"fi": "Valinnainen",
+"fr": "Facultatif",
+"hi": "वैकल्पिक",
+"it": "Facoltativo",
+"ja": "オプション",
+"ko": "선택 사항",
+"ms": "Opsyenal",
+"nb": "Valgfritt",
+"nl": "Optioneel",
+"pt-BR": "Opcional",
+"pt-PT": "Opcional",
+"sv": "Valfritt",
+"th": "ไม่จำเป็น",
+"zh-CN": "可选",
+"zh-TW": "(選填)"
+}
+},
+{
+"type": "color",
+"id": "color_bg",
+"label": {
+"da": "Bjælke",
+"de": "Zeile",
+"en": "Bar",
+"es": "Barra",
+"fi": "Palkki",
+"fr": "Barre",
+"hi": "बार",
+"it": "Barra",
+"ja": "バー",
+"ko": "바",
+"ms": "Bar",
+"nb": "Felt",
+"nl": "Balk",
+"pt-BR": "Barra",
+"pt-PT": "Barra",
+"sv": "Fält",
+"th": "แถบ",
+"zh-CN": "栏",
+"zh-TW": "橫條"
+},
+"default": "#7796a8"
+},
+{
+"type": "color",
+"id": "color_text",
+"label": {
+"da": "Tekst",
+"de": "Text",
+"en": "Text",
+"es": "Texto",
+"fi": "Teksti",
+"fr": "Texte",
+"hi": "टेक्स्ट",
+"it": "Testo",
+"ja": "テキスト",
+"ko": "텍스트",
+"ms": "Teks",
+"nb": "Tekst",
+"nl": "Tekst",
+"pt-BR": "Texto",
+"pt-PT": "Texto",
+"sv": "Text",
+"th": "ข้อความ",
+"zh-CN": "文本",
+"zh-TW": "文字"
+},
+"default": "#fff"
+}
+]
+}
+{% endschema %}

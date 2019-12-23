@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common.css?v=0.1">
+  <link rel="stylesheet" href="./fonts/iconfont/iconfont.css">
+  <!-- <script src="./static/fonts/iconfont/iconfont.js"></script> -->
+  <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+
+    ; (function (doc, win) {
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+
+      function calc() {
+        var dEl = document.documentElement,
+          clientWidth = dEl.clientWidth;
+        var maxWidth = 640, minWidth = 320;
+
+        if (clientWidth > maxWidth) {
+          clientWidth = maxWidth
+        } else if (clientWidth < minWidth) {
+          clientWidth = minWidth
+        }
+        // if(clientWidth>=640){
+        // 	clientWidth = 640;
+        // }
+
+        dEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+      }
+      function calc1920() {
+        var dEl = document.documentElement,
+          clientWidth = dEl.clientWidth;
+        var maxWidth = 1920, minWidth = 1024;
+
+        if (clientWidth > maxWidth) {
+          clientWidth = maxWidth
+        } else if (clientWidth < minWidth) {
+          clientWidth = minWidth
+        }
+        dEl.style.fontSize = 100 * (clientWidth / 1920) + 'px'
+      }
+      var dEl = document.documentElement,
+        clientWidth = dEl.clientWidth
+      if (clientWidth <= 960) {
+        win.addEventListener(resizeEvt, calc);
+        doc.addEventListener('DOMContentLoaded', calc);
+      } else {
+        win.addEventListener(resizeEvt, calc1920);
+        doc.addEventListener('DOMContentLoaded', calc1920);
+      }
+    })(document, window)
+      ;
+
+  </script>
+</head>
+
+<body>
+
+
+  <header class="header site-header border-bottom logo--left" role="banner">
+    <div class="header-top sec-contain clearfix">
+      <div class="top_logo fl">
+        <a href="/?lang=en">
+          <img src="https://www.hyperpay.tech/static/dist/images/common/logo.svg" alt="" class="logo_img">
+        </a>
+      </div>
+      <div class="top_nav fl clearfix">
+        <nav class="nav">
+          <ul class="clearfix gotham-medium">
+            <li class=""><a href="/wallet?lang=en">Wallets</a></li>
+            <li class=""><a href="/trading?lang=en">Trading</a></li>
+            <li class=""><a href="/pos?lang=en">Staking</a></li>
+            <li class=""><a href="/wealth?lang=en">Investment</a></li>
+            <li class=""><a href="/loan?lang=en">BitLoan</a></li>
+            <li class=""><a href="/cloud?lang=en">Cloud Mining</a></li>
+            <li class=""><a href="/latest_news?lang=en">News</a></li>
+            <li class=""><a href="/support?lang=en">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="top_right fr">
+        <span class="language-side gotham-medium">
+          <i class="iconfont iconlanguage-icon"></i>
+          En
+          <div class="lan-content">
+            <a href="?lang=zh-cn">中文</a> <a href="?lang=korea">한국어</a> </div>
+        </span>
+
+        <a href="/download?lang=en" class="download-btn ">
+          <span><img src="https://www.hyperpay.tech/static/dist/images/common/download-icon.svg">DownloadApp</span>
+        </a>
+      </div>
+      <span class="mobile-nav-btn"><i></i></span>
+    </div>
+  </header>
+  <!-- 移动端nav -->
+  <div class="mobile-nav-container">
+    <div class="mobile-nav">
+      <div class="flex-box1">
+        <ul>
+          <li>
+            <a href="./exchange_闪电兑换.html">Exchange</a>
+          </li>
+          <li>
+            <a href="./p2p_借贷.html">Peer-to-peer Loan</a>
+          </li>
+          <li>
+            <a href="./pos_币种.html">Staking</a>
+          </li>
+          <li>
+            <a href="./wealth_理财介绍.html">Wealth</a>
+          </li>
+          <li>
+            <a href="./news_新闻.html">News</a>
+          </li>
+          <li>
+            <a href="./guide_新手指南.html">User Guide</a>
+          </li>
+          <li>
+            <a href="support_帮助中心.html">24/7 Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="icon-wrap fl">
+        <a href="javascript:void(0)">
+          <span class="down-btn">Download App</span></a>
+        <!--<span class="terminal"><i class="iconfont icondownload-apple-logo-inbtl"></i></span>-->
+        <!--<span class="terminal"><i class="iconfont icondownload-google-logo-inbtl"></i></span>-->
+        <!--<span class="terminal"><i class="iconfont iconAndroid"></i></span>-->
+      </div>
+
+      <div class="flex-box2">
+        <div class="lang-wrap">
+          <a href="javascript:;" class="lang-btn active">English</a>
+          <em>|</em>
+          <a href="javascript:;" class="lang-btn">中文</a>
+          <em>|</em>
+          <a href="javascript:;" class="lang-btn ">한국어</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    // 小屏导航
+    $(document).on("click", ".mobile-nav-btn", function () {
+      $(".mobile-nav-container").toggleClass("active");
+      $(".mobile-nav-btn").toggleClass("active");
+    });
+  </script>
+
+  <style>
+    .header {
+      position: relative;
+      z-index: 101;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ddd;
+      color: #bec3c8;
+      padding: 0.1rem 0;
+
+      width: 100%;
+      position: fixed;
+      height: 0.69rem;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+    }
+
+    .header .header-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .top_logo {
+      text-align: right;
+    }
+
+    .header .top_logo .logo_img {
+      height: 0.4rem;
+      margin: 0 3.5% 0 0;
+    }
+
+    .header .top_nav {
+      flex: 1;
+      display: block;
+    }
+
+    .header .top_nav nav {
+      max-width: 1000px;
+    }
+
+    .header .top_nav nav ul {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.4rem;
+    }
+
+    .header .top_nav li {
+      font-size: 15px;
+      height: 0.51rem;
+      line-height: 0.51rem;
+    }
+
+    .header .top_nav li a {
+      color: #77828f;
+    }
+
+    .header .top_nav li:hover,
+    .header .top_nav li.active {
+      color: #0e1523;
+    }
+
+    .header .top_nav li:hover a,
+    .header .top_nav li.active a {
+      color: #0e1523;
+    }
+
+    .header .top_right {
+      /* width: 24.7%; */
+      flex-shrink: 0;
+      font-size: 0.15rem;
+      height: 0.51rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .header .top_right i {
+      font-size: 0.1rem;
+      margin-left: 0.03rem;
+    }
+
+    .header .top_right .language-side {
+      margin-right: 8%;
+      height: 0.51rem;
+      line-height: 0.51rem;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      padding-right: 14px;
+      display: flex;
+      color: #77828F;
+    }
+
+    .header .top_right .language-side i {
+      font-size: 0.2rem;
+      margin-left: 0;
+      margin-right: 0.08rem;
+    }
+
+    .header .top_right .language-side:after {
+      position: absolute;
+      border-bottom: 4px transparent dashed;
+      border-left: 4px transparent dashed;
+      border-right: 4px transparent dashed;
+      border-top: 4px #0e1523 solid;
+      top: 52%;
+      transform: translate(0, -50%);
+      right: 0;
+      display: block;
+      content: "";
+    }
+
+    .header .top_right .language-side:hover .lan-content,
+    .header .top_right .language-side.active .lan-content {
+      opacity: 1;
+    }
+
+    .header .top_right .lan-content {
+      opacity: 0;
+      position: absolute;
+      right: -0.2rem;
+      top: 0.48rem;
+      z-index: 99;
+      width: 0.8rem;
+      border-radius: 0.05rem;
+      background-color: #fff;
+      box-shadow: 0px 0.07rem 0.2rem 0px rgba(0, 0, 0, 0.17);
+      overflow: hidden;
+      transition: all .33s ease 0s;
+    }
+
+    .header .top_right .lan-content a {
+      display: block;
+      width: 100%;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      font-size: 0.15rem;
+      text-align: center;
+      color: #0E1523;
+      font-weight: 400;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+    }
+
+    .header .top_right .lan-content a:hover,
+    .header .top_right .lan-content a.active {
+      color: #1A72FE;
+    }
+
+    .header .top_right .download-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header .top_right .download-btn span {
+      /* width: 1.77rem; */
+      /* max-width: 180px; */
+      padding: 0 0.15rem;
+      height: 0.45rem;
+      max-height: 0.51rem;
+      background: #1A72FE;
+      border-radius: 0.23rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: #fff;
+      font-family: "gotham-medium";
+    }
+
+    .header .top_right .download-btn span:hover {
+      background: #0054D9 !important;
+    }
+
+    .header .top_right .download-btn img {
+      width: 0.18rem;
+      margin-right: 0.11rem;
+    }
+
+    .header .top_right .terminal {
+      display: inline-block;
+      width: 0.51rem;
+      height: 0.51rem;
+      border-radius: 0.08rem;
+      margin-right: 1.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header .top_right .terminal .iconfont {
+      font-size: 0.3rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .header .top_right .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .header .top_right .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .header .top_right .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+    }
+
+    /* 移动端 */
+    .mobile-nav-btn {
+      position: absolute;
+      top: 50%;
+      right: 0.55rem;
+      transform: translate(0, -50%);
+      display: none;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mobile-nav-btn.active::before {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .mobile-nav-btn.active i {
+      opacity: 0;
+      transition: all .2s ease;
+    }
+
+    .mobile-nav-btn.active::after {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mobile-nav-btn::before,
+    .mobile-nav-btn::after,
+    .mobile-nav-btn i {
+      position: absolute;
+      display: inline-block;
+      width: 50%;
+      left: 50%;
+      height: 2px;
+      border-radius: 0.1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: .3s ease-in-out;
+    }
+
+    .mobile-nav-btn::before {
+      content: '';
+      top: 34%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn::after {
+      content: '';
+      top: 67%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mobile-nav-btn i {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      transition: all .3s linear;
+    }
+
+    /* 内容 */
+    .mobile-nav-container {
+      position: fixed;
+      left: 0;
+      /* top: 50px; */
+      top: 0.69rem;
+      width: 100%;
+      height: 0;
+      color: #77828F;
+      background-color: #fff;
+      z-index: 100;
+      overflow: hidden;
+      transition: all .6s ease-in-out;
+    }
+
+    .mobile-nav-container a {
+      color: #77828F;
+    }
+
+    .mobile-nav-container.active {
+      height: 100%;
+    }
+
+    .mobile-nav-container .logo-wrap {
+      position: relative;
+      height: 0.5rem;
+      display: flex;
+      align-items: center;
+      display: none;
+    }
+
+    .mobile-nav-container .mobile-nav {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      padding: 1.33rem 0 1rem;
+    }
+
+    .mobile-nav-container li {
+      text-align: center;
+      font-size: 0.32rem;
+      margin-bottom: 0.5rem;
+      font-family: "gotham-medium";
+      cursor: pointer;
+    }
+
+    .mobile-nav-container li.active {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container li.active a {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .lang-wrap {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mobile-nav-container .lang-btn {
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.32rem;
+      padding: 0 0.4rem;
+      font-family: "gotham-medium";
+      color: #77828F;
+    }
+
+    .mobile-nav-container .lang-btn.active,
+    .mobile-nav-container .lang-btn:hover {
+      color: #0E1523;
+    }
+
+    .mobile-nav-container .logo img {
+      width: 1.79rem;
+    }
+
+    .mobile-nav-container .logo a {
+      display: block;
+    }
+
+    .mobile-nav-container .menu-btn {
+      position: absolute;
+      right: 0.1rem;
+      top: 50%;
+      color: #fff;
+      -webkit-transform: translate(0px, -50%);
+      -moz-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%);
+    }
+
+    .mobile-nav-container .menu-btn .iconfont {
+      font-size: 0.3rem;
+    }
+
+    .mobile-nav-container .mobile-nav-btn {
+      background: none;
+    }
+
+    .mobile-nav-container .icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .mobile-nav-container .icon-wrap span {
+      float: left;
+      margin-right: 0.6rem;
+    }
+
+    .mobile-nav-container .icon-wrap .down-btn {
+      width: 3.56rem;
+      height: 0.98rem;
+      line-height: 0.98rem;
+      background: #1a71fd;
+      opacity: 1;
+      border-radius: 1.6rem;
+      font-size: 0.28rem;
+      color: #fff;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 0.08rem;
+      margin-right: 4.5%;
+      background-color: #1a72fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-nav-container .icon-wrap .terminal .iconfont {
+      font-size: 0.5rem;
+      color: #fff;
+      margin-left: 0;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_apple {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% -13%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_window {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 60% 47%;
+    }
+
+    .mobile-nav-container .icon-wrap .ter_andro {
+      background-image: url("../images/common/icon_terminal.png");
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      background-position: 50% 115%;
+      margin-right: 0;
+    }
+
+    @media screen and (max-width:970px) {
+
+      .header .top_nav,
+      .header .top_right {
+        display: none;
+      }
+
+      .mobile-nav-btn {
+        display: inline-block;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .header .top_nav li {
+        font-size: 13px;
+      }
+    }
+  </style>
+
+  <div class="page-width">
+    <div class="reinsurance-container">
+      <ul>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/shipping-plane.png" class="icon-shipping-plane" alt="">
+          </div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="content-text">Without minimum <br>purchase requirement</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/easy-return.png" class="icon-easy-return" alt=""></div>
+          <div class="block-content">
+            <p class="content-title">Easy Return</p>
+            <p class="content-text">14 days to return your <br>order</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/secure-payment.png" class="icon-secure-payment" alt="">
+          </div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="content-text">More than 15 methods <br>accepted</p>
+          </div>
+        </li>
+        <li class="reinsurance-block">
+          <div class="block-image"><img src="./assets/customer-support.png" class="icon-customer-support" alt="">
+          </div>
+          <div class="block-content">
+            <p class="content-title">Free shipping</p>
+            <p class="content-text">Multi language support <br>with 10 crypro experts</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <style>
+    .reinsurance-container {
+      margin-top: 0.63rem;
+      margin-bottom: 0.7rem;
+      font-family: "gotham-book";
+    }
+
+    .reinsurance-container ul {
+      border-top: 1px solid #EDEDED;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .reinsurance-block {
+      flex: 1;
+      padding-top: 0.63rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .reinsurance-block .block-image {
+      width: 0.84rem;
+      height: 0.84rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reinsurance-block .block-image .icon-shipping-plane {
+      width: 0.72rem;
+      height: 0.71rem;
+    }
+
+    .reinsurance-block .block-image .icon-easy-return {
+      width: 0.67rem;
+      height: 0.67rem;
+    }
+
+    .reinsurance-block .block-image .icon-secure-payment {
+      width: 0.74rem;
+      height: 0.64rem;
+    }
+
+    .reinsurance-block .block-image .icon-customer-support {
+      width: 0.84rem;
+      height: 0.77rem;
+    }
+
+    .reinsurance-block .block-content {
+      margin-top: 0.7rem;
+    }
+
+    .reinsurance-block .block-content .content-title {
+      font-size: 0.23rem;
+      font-family: "gotham-book";
+      color: #0E1523;
+      text-align: center;
+    }
+
+    .reinsurance-block .block-content .content-text {
+      margin-top: 0.23rem;
+      font-size: 0.18rem;
+      font-family: "gotham-book";
+      color: #BFBFBF;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 749px) {
+      .reinsurance-container ul{
+        flex-wrap: wrap;
+      }
+      .reinsurance-block {
+        width: 50%;
+        flex: 0 0 auto;
+      }
+      .reinsurance-block .block-content {
+          margin-top: 0.5rem;
+      }
+    }
+
+  </style>
+
+  <div class="features-wrap">
+    <div class="page-width">
+      <div class="features-container">
+        <div class="features-header">Features</div>
+        <ul>
+          <li class="features-block">
+            <div class="block-image">
+              <img src="./assets/secure-shield.png" class="icon-secure-shield" alt="">
+            </div>
+            <div class="block-content">
+              <p class="content-title">Secure</p>
+              <p class="content-text">Your private key giving access to your funds is never exposed. It remains
+                protected withing a secure chip, designed to withstand highly sophisticated attacks.</p>
+            </div>
+          </li>
+          <li class="features-block">
+            <div class="block-image">
+              <img src="./assets/check-blue.png" class="icon-check-blue" alt="">
+            </div>
+            <div class="block-content">
+              <p class="content-title">Easy to manage</p>
+              <p class="content-text">Manage 8 coins, ERC-20 & QRC-20 directly from your smartphone with HyperPay. To
+                manage other assets, you can use HyperPay on-chain and off-chain wallet</p>
+              <a class="content-link" href="javascript:;">Discover HyperPay wallet<i></i></a>
+            </div>
+          </li>
+          <li class="features-block">
+            <div class="block-image">
+              <img src="./assets/bluetooth.png" class="icon-bluetooth" alt="">
+            </div>
+            <div class="block-content">
+              <p class="content-title">Mobile</p>
+              <p class="content-text">Connect your device to the HyperPay mobile app and safely manage your crypto
+                anywhere. Bluetooth® is used for connection.</p>
+            </div>
+          </li>
+          <li class="features-block">
+            <div class="block-image">
+              <img src="./assets/coin-reward.png" class="icon-coin-reward" alt="">
+            </div>
+            <div class="block-content">
+              <p class="content-title">Earn rewards</p>
+              <p class="content-text">Receive rewards while holding your coins securely using HyperPay crypto PoS
+                staking, BitEarn and Investment.</p>
+              <a class="content-link" href="javascript:;">Earn with HyperPay wallet<i></i></a>
+            </div>
+          </li>
+          <li class="features-block">
+            <div class="block-image">
+              <img src="./assets/extensive-capacity.png" class="icon-extensive-capacity" alt="">
+            </div>
+            <div class="block-content">
+              <p class="content-title">Extensive Capacity</p>
+              <p class="content-text">The HyperMate can store many types of coins at the same time, including Bitcoin,
+                Ethereum, Bitcoin Cash, EOS, Hcash, QTUM and many more. Manage all your assets on the same device, at
+                the same time.</p>
+              <a class="content-link" href="javascript:;">Crypto assets supported<i></i></a>
+            </div>
+          </li>
+        </ul>
+        <div class="features-btn">
+          <a class="btn-more" href="javascript:;">DISCOVER MORE ON THE LEDGER NANO X</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .features-wrap {
+      background: #F0F4F7 url(./assets/features-bg.png) no-repeat right bottom;
+      background-size: 11.12rem 6.44rem;
+    }
+
+    .features-container {
+      padding-bottom: 0.5rem;
+      font-family: "gotham-book";
+    }
+
+    .features-container .features-header {
+      padding-top: 0.9rem;
+      font-size: 0.48rem;
+      color: #0E1523;
+      text-align: center;
+    }
+
+    .features-container ul {
+      margin-top: 0.14rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .features-block {
+      margin-top: 0.76rem;
+      width: 45%;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .features-block .block-image {
+      margin-right: 0.88rem;
+      margin-bottom: 0.2rem;
+      width: 0.84rem;
+      height: 0.84rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .features-block .block-image .icon-secure-shield {
+      width: 0.66rem;
+      height: 0.77rem;
+    }
+
+    .features-block .block-image .icon-check-blue {
+      width: 0.70rem;
+      height: 0.52rem;
+    }
+
+    .features-block .block-image .icon-bluetooth {
+      width: 0.47rem;
+      height: 0.81rem;
+    }
+
+    .features-block .block-image .icon-coin-reward {
+      width: 0.77rem;
+      height: 0.84rem;
+    }
+
+    .features-block .block-image .icon-extensive-capacity {
+      width: 0.61rem;
+      height: 0.60rem;
+    }
+
+    .features-block .block-content {
+      flex: 1;
+    }
+
+    .features-block .block-content .content-title {
+      margin-bottom: 0.3rem;
+      font-size: 0.36rem;
+      color: #0E1523;
+    }
+
+    .features-block .block-content .content-text {
+      font-size: 0.18rem;
+      color: #0E1523;
+      line-height: 0.3rem;
+    }
+
+    .features-block .block-content .content-link {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-size: 0.18rem;
+      color: #1A72FE;
+      line-height: 30px;
+
+      display: flex;
+      align-items: center;
+    }
+    .features-block .block-content .content-link i{
+      margin-left:0.15rem;
+      width: 0.05rem;
+      height: 0.11rem;
+      background:url(./assets/arrow.png) no-repeat center;
+      background-size: contain;
+    }
+
+    .features-btn .btn-more {
+      margin-top: 0.5rem;
+      margin-left: 1.72rem;
+      display: inline-block;
+      padding: 0 0.32rem;
+      line-height: 0.45rem;
+      border-radius: 0.45rem;
+      font-size: 0.12rem;
+      color: #fff;
+      background-color: #1A72FE;
+    }
+    @media screen and (max-width: 749px) {
+      .features-block{
+        width: 100%;
+        display: block;
+      }
+      .features-block .block-image{
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .features-btn{
+        display: flex;
+        justify-content: center;
+      }
+      .features-btn .btn-more{
+        line-height: 0.7rem;
+        border-radius: 0.7rem;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <div class="box-wrap">
+    <div class="page-width">
+      <div class="box-container">
+        <div class="box-header">Box contents</div>
+        <div class="box-content">
+          <ul>
+            <li>
+              <i></i>
+              <span>1 hardware wallet</span>
+            </li>
+            <li>
+              <i></i>
+              <span>1 USB cable</span>
+            </li>
+            <li>
+              <i></i>
+              <span>1 getting started leaflet</span>
+            </li>
+            <li>
+              <i></i>
+              <span>2 recovery cards</span>
+            </li>
+            <li>
+              <i></i>
+              <span>1 keychain strap</span>
+            </li>
+            <li>
+              <i></i>
+              <span>1 leather case</span>
+            </li>
+          </ul>
+          <div class="box-content-image">
+            <div>
+                <img src="./assets/box-content.png" alt="">
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .box-wrap {
+      background: url(./assets/box-bg.png) no-repeat left bottom;
+      background-size: 11.31rem 7.37rem;
+    }
+
+    .box-container{
+      font-family: "gotham-book";
+    }
+    .box-container .box-header {
+      padding-top: 0.9rem;
+      font-size: 0.48rem;
+      color: #0E1523;
+      text-align: center;
+    }
+
+    .box-container .box-content {
+      margin-top: 0.6rem;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .box-content ul {
+      margin-left: 0.8rem;
+      margin-top: 0.7rem;
+      margin-bottom:0.5rem;
+    }
+
+    .box-content ul li {
+      display: flex;
+      align-items: center;
+      line-height: 0.56rem;
+    }
+
+    .box-content ul li i {
+      margin-right: 0.5rem;
+      width: 0.29rem;
+      height: 0.22rem;
+      background: url(./assets/check-box-content.png) no-repeat center;
+      background-size: contain;
+    }
+
+    .box-content ul li span {
+      font-size: 0.24rem;
+      color: #0E1523;
+    }
+
+    .box-content .box-content-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .box-content .box-content-image img {
+      display: inline-block;
+      max-width: 8.79rem;
+      width: 100%;
+      height:auto;
+
+    }
+    @media screen and (max-width: 749px) {
+      .box-content .box-content-image {
+        display: none;
+      }
+      .box-content ul{
+        margin-top: 0;
+      }
+    }
+  </style>
+
+  <div class="technical-wrap">
+    <div class="page-width">
+      <div class="technical-container">
+        <div class="technical-image">
+          <div>
+              <img src="./assets/hypermate-techspec.png" alt="">
+          </div>   
+        </div>
+        <div class="technical-content">
+          <div class="content-header">
+            Technical specifications
+          </div>
+          <div class="content-bodyer">
+            <ul>
+              <li class="list-block">
+                <div class="block-title">Demensions & weigth</div>
+                <div class="block-des">
+                  Size: 72mm x 18.6mm x 11.75mm<br>
+                  Weight: 34g
+                </div>
+              </li>
+              <li class="list-block">
+                <div class="block-title">Materials</div>
+                <div class="block-des">
+                  Brushed stainless steel and plastic.<br>
+                  100mAh battery
+                </div>
+              </li>
+              <li class="list-block">
+                <div class="block-title">Microcontrollers & connector</div>
+                <div class="block-des">
+                  Connector: USB Type-C<br>
+                  Certification level: CC EAL5+<br>
+                  cHIPS: ST33J2M0 (secure) + STM32WB55
+                </div>
+              </li>
+              <li class="list-block">
+                <div class="block-title">Compatibility</div>
+                <div class="block-des">
+                  64-bits desktop computer (Windows 8+, mac OS<br>
+                  10.8+, Linux) exclduing ARM Processors. Also<br>
+                  compatible with smartphones (iOS 9+ or Andrioid 7+)<br>
+                  The device is not suitable for mining (view more)
+                </div>
+              </li>
+            </ul>
+            <div class="support">
+              <div class="support-title">CRYPTOGRAPHIC SUPPORT</div>
+              <div class="support-des">
+                <p>
+                  Message Digest: RIPEMD160, SHA224, SHA256, SHA384, SHA512, SHA3, SHA3-XOF, KECCAK, BLACKE2B, Grostl,
+                </p>
+                <p>
+                  Cryptography Key, wiht key generations: <br>
+                  DES (56, 11, 168 bist), AES (128, 192,256 bits), Message
+                  Digest: RIPEMD160, SHA224, SHA256, SHA384, SHA512, SHA3, SHA3-XOF, KECCAK, BLACKE2B, Grostl,
+                </p>
+                <p>
+                  Cryptography Key, wiht key generations: <br>
+                  DES (56, 11, 168 bist), AES (128, 192,256 bits), Message
+                  Digest: RIPEMD160, SHA224, SHA256, SHA384, SHA512, SHA3, SHA3-XOF, KECCAK, BLACKE2B, Grostl,
+                </p>
+                <p>
+                  Cryptography Key, wiht key generations: <br>
+                  DES (56, 11, 168 bist), AES (128, 192,256 bits), Message
+                  Digest: RIPEMD160, SHA224, SHA256, SHA384, SHA512, SHA3, SHA3-XOF, KECCAK, BLACKE2B, Grostl,
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <style>
+    .technical-wrap {
+      background: #1A72FE url(./assets/technical-bg.png) no-repeat left bottom;
+      background-size: 11.31rem 7.37rem;
+    }
+
+    .technical-container {
+      display: flex;
+      padding: 0.66rem 0;
+      font-family: "gotham-book";
+    }
+
+    .technical-image {
+      /* flex:0 0 auto; */
+      width: 5.30rem;
+      height: 6.66rem;
+    }
+
+    .technical-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .technical-content {
+      flex: 1;
+      padding-left: 0.55rem;
+    }
+
+    .technical-content .content-header {
+      margin-top: 0.26rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.48rem;
+      color: #fff;
+    }
+
+    .technical-content .content-bodyer {
+      display: flex;
+    }
+
+    .technical-content .content-bodyer ul {
+      /* width: 50%; */
+      padding-right:0.5rem;
+      color: #fff;
+    }
+
+    .technical-content .list-block+.list-block {
+      margin-top: 0.35rem;
+    }
+
+
+    .technical-content .content-bodyer ul .block-title {
+      font-size: 0.3rem;
+      font-family: "gotham-medium";
+    }
+
+    .technical-content .content-bodyer ul .block-des {
+      margin-top: 0.20rem;
+      font-size: 0.14rem;
+      line-height: 1.3;
+    }
+
+    .technical-content .support {
+      flex: 1;
+      /* width: 50%; */
+      padding-left:0.5rem;
+      padding-right:0.15rem;
+      color: #fff;
+      border-left: 1px solid rgba(255,255,255, 0.3);
+    }
+    .technical-content .support .support-title{
+      font-size: 0.18rem;
+      font-family: "gotham-medium";
+      margin-bottom: 0.25rem;
+    }
+    .technical-content .support .support-des{
+      font-size: 0.14rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+    .technical-content .support .support-des p{
+      color:#fff;
+    }
+
+    @media screen and (max-width: 749px) {
+      .technical-image {
+        display: none;
+      }
+      .technical-content {
+        padding-left: 0;
+      }
+      .technical-content .content-bodyer {
+        display: block;
+      }
+      .technical-content .support{
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+
+  <style>
+    body {
+      background-color: #fff;
+    }
+    .bodyer {
+      width: 100%;
+    }
+
+    .page-width {
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+    }
+
+    .page-width {
+      *zoom: 1;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .fl {
+      float: left;
+    }
+
+    .fr {
+      float: right;
+    }
+
+    .sec-contain {
+      width: 100%;
+      padding-left: 0.55rem;
+      padding-right: 0.55rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-txt sec-contain clearfix">
+
+
+        <div class="p-us about-item fl ">
+          <div class="connect-title">产品</div>
+          <ul>
+            <li><a href="download?lang=zh-cn" target="_blank">HyperPay</a></li>
+            <li><a href="https://coinw.ai/" target="_blank">CoinW 交易所</a></li>
+          </ul>
+        </div>
+
+        <div class="c-us about-item fl">
+          <div class="connect-title">联系我们</div>
+          <ul>
+            <li><a href="https://hyperpayhelp.zendesk.com/hc/zh-cn" target="_blank">常见问题</a></li>
+            <li><a href="https://hyperpayhelp.zendesk.com/hc/zh-cn/requests/new" target="_blank">联系我们</a></li>
+            <li><a href="/latest_news?lang=zh-cn" class="">公告中心</a></li>
+            <li><a href="/support?lang=zh-cn" class="">帮助中心</a></li>
+          </ul>
+        </div>
+
+        <div class="l-us about-item fl">
+          <div class="connect-title">关于</div>
+          <ul>
+
+            <li><a
+                href="https://hyperpayhelp.zendesk.com/hc/zh-cn/articles/360001254595-%E5%85%AC%E5%8F%B8%E4%BB%8B%E7%BB%8D"
+                class="">公司介绍</a></li>
+            <li><a href="/policy?lang=zh-cn" class="">隐私条款</a></li>
+          </ul>
+        </div>
+        <div class="of-me-us about-item fr">
+          <div class="connect-title">官方媒体</div>
+          <ul class="of-item clearfix">
+            <li><a href="https://www.facebook.com/hyperpayofficial/" target="_blank"><i
+                  class="iconfont iconsocial-facebook"></i></a></li>
+            <li><a href="https://twitter.com/HyperPay_tech" target="_blank"><i
+                  class="iconfont iconsocial-twitter"></i></a></li>
+            <li><a href="https://t.me/joinchat/NRy8SBRPH6u2Sol72GAMAw" target="_blank"><i
+                  class="iconfont iconsocial-telegram"></i></a></li>
+          </ul>
+          <ul class="of-item clearfix">
+            <li>
+              <a href="javascript:void(0)" target="_blank" class="icon-qq"><i class="iconfont iconsocial-qq"></i>
+
+                <div class="footer-item-hover">
+                  <img src="/data/upload/2019-08/20190815150816181766.png">
+                  <span>扫描二维码</span>
+
+                </div>
+
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" target="_blank" class="icon-wx"><i class="iconfont iconsocial-wechat"></i>
+                <div class="footer-item-hover">
+                  <img src="/data/upload/2019-09/20190910125220159777.jpeg">
+                  <span>扫描二维码</span>
+                </div>
+              </a>
+            </li>
+            <li><a href="https://www.weibo.com/p/1005056358820994" target="_blank"><i
+                  class="iconfont iconsocial-weibo"></i></a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-txt sec-contain">
+        <div class="clearfix">
+          <h3 class="fl">Copyright © 2019 HyperPay. </h3>
+          <h3 class="from fr"><a>Address: Tower C, TML Plaza, Tsuen Wan, Hong Kong</a></h3>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <style>
+    .footer {
+      color: #0e1523;
+    }
+
+    .footer .footer-top {
+      background-color: #f0f4f7;
+    }
+
+    .footer .footer-txt {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer .about-item {
+      width: 20%;
+    }
+
+    .footer .about-item .connect-title {
+      font-size: 0.2rem;
+      font-family: "gotham-medium";
+      margin-bottom: 0.2rem;
+    }
+
+    .footer .about-item li a {
+      font-size: 0.16rem;
+      font-family: "gotham-book";
+      height: 0.3rem;
+      line-height: 0.3rem;
+      color: #0e1523;
+      display: inline-block;
+      padding-bottom: 0.05rem;
+      -webkit-transition: all .6s;
+      -o-transition: all .6s;
+      transition: all .6s;
+    }
+
+    .footer .about-item li a:hover,
+    .footer .about-item li a.active {
+      color: #1a72fe;
+    }
+
+    .footer .of-me-us {
+      width: auto;
+    }
+
+    .footer .of-me-us .connect-title {
+      text-align: left;
+    }
+
+    .footer .of-me-us .of-item {
+      display: flex;
+    }
+
+    .footer .of-me-us li {
+      float: left;
+      margin-right: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .footer .of-me-us li .iconfont {
+      color: #999;
+      width: 0.27rem;
+      font-size: 0.24rem;
+    }
+
+    .footer .of-me-us li .iconfont:hover {
+      color: #1a72fe;
+    }
+
+    .footer .of-me-us li a {
+      position: relative;
+    }
+
+    .footer .of-me-us li a img {
+      display: none;
+    }
+
+    .footer .of-me-us li a .footer-item-hover {
+      position: absolute;
+      left: 0;
+      margin-left: -0.9rem;
+      bottom: 100%;
+      width: 2rem;
+      min-height: 2rem;
+      max-width: none;
+      padding: 0.11rem 0;
+      z-index: -10;
+      opacity: 0;
+      text-align: center;
+      background: #fff;
+    }
+
+    .footer .of-me-us li a .footer-item-hover img {
+      width: 1.81rem;
+      height: 1.81rem;
+      margin: 0 auto;
+      opacity: 1;
+      display: block;
+    }
+
+    .footer .of-me-us li a .footer-item-hover span {
+      font-size: 0.18rem;
+      color: #0E1523;
+      line-height: 1;
+    }
+
+    .footer .of-me-us li a.icon-qq:hover .footer-item-hover,
+    .footer .of-me-us li a.icon-wx:hover .footer-item-hover {
+      opacity: 1;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+      bottom: 140%;
+      z-index: 10;
+    }
+
+    .footer .footer-bottom {
+      background-color: #fff;
+    }
+
+    .footer .footer-bottom .footer-txt {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+
+    .footer .footer-bottom .footer-txt h3 {
+      font-size: 0.16rem;
+      font-family: "gotham-medium";
+      color: #0e1523;
+    }
+
+    .footer .footer-bottom .footer-txt div {
+      color: #77828f;
+      line-height: 0.35rem;
+      height: 0.35rem;
+    }
+
+    .footer .footer-bottom .footer-txt div a {
+      color: #77828f;
+    }
+
+    .footer .footer-bottom .footer-txt .from {
+      text-align: right;
+    }
+
+    .footer .footer-bottom .footer-txt .from em {
+      font-weight: bold;
+      font-family: "gotham-book";
+      color: #b8c1cc;
+    }
+
+    @media screen and (max-width: 749px) {
+      .footer .footer-txt {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+      }
+
+      .footer .about-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer .about-item .connect-title {
+        font-size: 0.32rem;
+        margin-bottom: 0.55rem;
+        font-weight: bold;
+      }
+
+      .footer .about-item ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .footer .about-item li {
+        width: 50%;
+      }
+
+      .footer .about-item li a {
+        font-size: 0.28rem;
+        height: auto;
+        line-height: 1;
+        padding-bottom: 0.35rem;
+      }
+
+      .footer .of-me-us {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .footer .of-me-us .connect-title {
+        width: 100%;
+      }
+
+      .footer .of-me-us .of-item {
+        width: 50%;
+      }
+
+      .footer .of-me-us li {
+        width: 33.33%;
+        margin-right: 0;
+        margin-bottom: 0.1rem;
+      }
+
+      .footer .of-me-us li a {
+        padding-bottom: 0.15rem;
+      }
+
+      .footer .of-me-us li a .footer-item-hover {
+        margin-left: 0;
+      }
+
+      .footer .of-me-us li .iconfont {
+        font-size: 0.5rem;
+        margin-right: 0.1rem;
+      }
+
+      .footer .footer-bottom {
+        border-top: 1px solid #d9e1e7;
+      }
+
+      .footer .footer-bottom .footer-txt h3 {
+        display: block;
+        font-size: 0.28rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .footer .footer-bottom .footer-txt div {
+        font-size: 0.28rem;
+        line-height: 0.5rem;
+        height: auto;
+      }
+
+      .footer .footer-bottom .footer-txt .from {
+        float: left;
+        text-align: left;
+        /* padding-top: 0.4rem; */
+      }
+    }
+  </style>
+
+
+
+</body>
+
+</html>
